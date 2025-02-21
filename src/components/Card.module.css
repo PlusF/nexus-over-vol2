@@ -1,0 +1,56 @@
+.card {
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: all 0.2s;
+  height: 300px;
+  width: 100%;
+  max-width: 400px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+.imageContainer {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 40%;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: unset;
+}
+
+/* スマートフォンサイズ */
+@media (max-width: 480px) {
+  .card {
+    height: 250px;
+    padding: 0.75rem;
+  }
+}
+
+/* タブレットサイズ */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    height: 225px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    border-color: #333;
+  }
+}

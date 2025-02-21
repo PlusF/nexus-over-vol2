@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 101;
+  padding: 6rem 2rem 2rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.primaryLink {
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.links a {
+  transition: opacity 0.2s;
+}
+
+.links a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .menu {
+    width: 60%;
+  }
+
+  .links {
+    font-size: 1.125rem;
+    gap: 1.25rem;
+  }
+
+  .primaryLink {
+    margin-bottom: 1rem;
+  }
+}

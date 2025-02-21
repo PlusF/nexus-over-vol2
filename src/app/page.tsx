@@ -1,95 +1,127 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+'use client'
+import styles from "./home.module.css";
+import { HomeLogo } from "@/components/HomeLogo";
+import NextLinkButton from '@/components/NextLinkButton';
+import { useRouter } from 'next/navigation';
+import Button from "@/components/Button";
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+  return (
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <HomeLogo />
+        <section className={styles.entryButtonContainer}>
+          <NextLinkButton href="/entry">Entry</NextLinkButton>
+        </section>
+        <section className={styles.concept}>
+          <div className={styles.writing}>
+            <h1>Concept</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => router.push('/concept')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        <section className={styles.casts}>
+          <div className={styles.writing}>
+            <h1>Casts</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => router.push('/casts')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        <section className={styles.venue}>
+          <div className={styles.writing}>
+            <h1>Venue</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => router.push('/venue')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        <section className={styles.timeTable}>
+          <div className={styles.writing}>
+            <h1>Time Table</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => router.push('/time-table')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        <section className={styles.movies}>
+          <div className={styles.writing}>
+            <h1>Movies</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => router.push('/movies')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        <section className={styles.history}>
+          <div className={styles.writing}>
+            <h1>History</h1>
+            <p>かっこよくてシンプルなテキスト</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button onClick={() => window.open('https://nexus-over.vercel.app', '_blank')}>
+              詳細 ☞
+            </Button>
+          </div>
+        </section>
+        {/* <div className={styles.cardContainer}>
+          <Card
+            title="Concept"
+            description="NEO - NExus Over"
+            onClick={() => router.push('/concept')}
+            imageSrc="/logo.svg"
+          />
+          <Card
+            title="Casts"
+            description="Judges/DJ/MC/Guest Battlers/Showcases"
+            onClick={() => router.push('/casts')}
+            imageSrc="/logo.svg"
+          />
+          <Card
+            title="Venue"
+            description="会場"
+            onClick={() => router.push('/venue')}
+            imageSrc="/logo.svg"
+          />
+          <Card
+            title="Time Table"
+            description="タイムテーブル"
+            onClick={() => router.push('/time-table')}
+            imageSrc="/logo.svg"
+          />
+          <Card
+            title="Movies"
+            description="関連動画"
+            onClick={() => router.push('/movies')}
+            imageSrc="/logo.svg"
+          />
+          <Card
+            title="History"
+            description="vol.1のHPが開きます"
+            onClick={() => window.open('https://nexus-over.vercel.app', '_blank')}
+            imageSrc="/logo.svg"
+          />
+        </div> */}
+        <section className={styles.entryButtonContainer}>
+          <NextLinkButton href="/entry">Entry</NextLinkButton>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

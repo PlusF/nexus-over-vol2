@@ -1,0 +1,78 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.placeholder {
+  width: 24px; /* メニューボタンと同じ幅 */
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ne {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: 0 0 5px #ffffff;
+  margin-right: -20px;
+  z-index: 200;
+}
+
+.o {
+  font-size: 2.6rem;
+  margin-left: -20px;
+  z-index: 150;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s;
+  position: relative;
+  z-index: 200; /* メニューのz-index(101)より大きい値に設定 */
+}
+
+.menuButton:hover {
+  opacity: 0.7;
+}
+
+.menuOpen {
+  position: fixed;
+  right: 2rem;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
