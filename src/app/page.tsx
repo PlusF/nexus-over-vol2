@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import Button from "@/components/Button";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
+import imageLoader from "./imageLoader";
+
 export default function Home() {
   const router = useRouter();
   const { scrollYProgress } = useScroll();
@@ -85,6 +87,7 @@ export default function Home() {
               alt="concept background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
@@ -108,6 +111,7 @@ export default function Home() {
               alt="casts background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
@@ -131,6 +135,7 @@ export default function Home() {
               alt="venue background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
@@ -154,6 +159,7 @@ export default function Home() {
               alt="time-table background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
@@ -177,6 +183,7 @@ export default function Home() {
               alt="movies background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
@@ -200,6 +207,7 @@ export default function Home() {
               alt="history background"
               fill
               style={{ objectFit: 'cover' }}
+              loader={imageLoader}
             />
           </motion.div>
           <div className={styles.writing}>
