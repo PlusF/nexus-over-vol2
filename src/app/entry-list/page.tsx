@@ -51,7 +51,7 @@ export default function EntryList() {
             <>
               {entries.map((entry, index) => {
                 const characterCount = (entry.generation?.length || 0) + (entry.genre?.length || 0) + (entry.entryName?.length || 0) + (entry.rep ? entry.rep.length : 0);
-                const fontSize = 12 / (characterCount - 8);
+                const fontSize = Math.min(12 / (characterCount - 8), 1.5);
                 return (
                   <div key={`entry-${index}`} className={entryListStyles.entryContainer}>
                     <div className={entryListStyles.entryInfo}>

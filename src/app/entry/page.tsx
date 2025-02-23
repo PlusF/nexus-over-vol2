@@ -10,7 +10,14 @@ import { useRouter } from 'next/navigation';
 export default function Entry() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [entry, setEntry] = useState<EntryType>({});
+  const [entry, setEntry] = useState<EntryType>({
+    realName: '',
+    entryName: '',
+    rep: '',
+    generation: '',
+    genre: '',
+    instagram: '',
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
