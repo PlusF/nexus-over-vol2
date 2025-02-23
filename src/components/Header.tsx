@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Menu } from './Menu';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,8 +21,7 @@ export const Header = () => {
         <div className={styles.container}>
           <div className={styles.placeholder} />
           <Link href="/" className={styles.logo}>
-            <div className={styles.ne}>NE</div>
-            <div className={styles.o}>O</div>
+            <Image src="/logo_trimmed.png" alt="logo" width={50} height={50} />
           </Link>
           <button
             className={`${styles.menuButton} ${isMenuOpen ? styles.menuOpen : ''}`}

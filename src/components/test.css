@@ -1,0 +1,91 @@
+.test {
+  animation: squiggly-anim 0.2s 4 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.test {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  outline: none;
+  text-align: center;
+  line-height: 1;
+}
+@-moz-keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  20% {
+    filter: url("#squiggly-1");
+  }
+  40% {
+    filter: url("#squiggly-2");
+  }
+  60% {
+    filter: url("#squiggly-3");
+  }
+  80% {
+    filter: url("#squiggly-4");
+  }
+  100% {
+    filter: url("#squiggly-0");
+  }
+}
+@-webkit-keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  20% {
+    filter: url("#squiggly-1");
+  }
+  40% {
+    filter: url("#squiggly-2");
+  }
+  60% {
+    filter: url("#squiggly-3");
+  }
+  80% {
+    filter: url("#squiggly-4");
+  }
+  100% {
+    filter: url("#squiggly-0");
+  }
+}
+@-o-keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  20% {
+    filter: url("#squiggly-1");
+  }
+  40% {
+    filter: url("#squiggly-2");
+  }
+  60% {
+    filter: url("#squiggly-3");
+  }
+  80% {
+    filter: url("#squiggly-4");
+  }
+  100% {
+    filter: url("#squiggly-0");
+  }
+}
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  20% {
+    filter: url("#squiggly-1");
+  }
+  40% {
+    filter: url("#squiggly-2");
+  }
+  60% {
+    filter: url("#squiggly-3");
+  }
+  80% {
+    filter: url("#squiggly-4");
+  }
+  100% {
+    filter: url("#squiggly-0");
+  }
+}

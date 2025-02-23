@@ -1,8 +1,6 @@
 .entryForm {
   border-radius: 1rem;
-  padding: 3rem;
-  width: 100%;
-  max-width: 800px;
+  padding: 1rem;
   background-color: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 1);
   backdrop-filter: blur(10px);
@@ -10,25 +8,10 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   position: relative;
-  z-index: 2;
-}
-
-.formContainer {
-  position: sticky;
-  top: 0;
-  left: 0;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr;
   padding: 2rem;
-  background-image: url(/images/background.jpg); /* 背景画像のパスを適切に設定してください */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  gap: 1.5rem;
+  z-index: 2;
 }
 
 .heading {
@@ -52,12 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-/* 最後の2つの要素（ジャンルと送信ボタン）を中央揃えにする */
-.formGroup:nth-last-child(2),
-.formGroup:last-child {
-  grid-column: span 2;
+  grid-column: span 1;
   max-width: 400px;
   margin: 0 auto;
   width: 100%;
@@ -102,22 +80,8 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 768px) {
-  .entryForm {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    gap: 1.5rem;
-  }
-
-  .formGroup:nth-last-child(2),
-  .formGroup:last-child {
-    grid-column: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .entryForm {
-    padding: 1.5rem;
-    gap: 1rem;
-  }
+.entryListButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
 }

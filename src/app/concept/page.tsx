@@ -8,7 +8,7 @@ export default function Concept() {
       <main className={styles.main}>
         <h1 className={styles.heading}>Concept</h1>
         <div className="concept">
-          <p>coming soon</p>
+          <p>coming soon...</p>
         </div>
       </main>
     </div>

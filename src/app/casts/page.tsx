@@ -8,7 +8,7 @@ export default function Casts() {
       <main className={styles.main}>
         <h1 className={styles.heading}>Casts</h1>
         <div className="cast-list">
-          <p>coming soon</p>
+          <p>coming soon...</p>
         </div>
       </main>
     </div>

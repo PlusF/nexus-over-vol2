@@ -8,7 +8,7 @@ export default function TimeTable() {
       <main className={styles.main}>
         <h1 className={styles.heading}>Time Table</h1>
         <div className="schedule">
-          <p>coming soon</p>
+          <p>coming soon...</p>
         </div>
       </main>
     </div>

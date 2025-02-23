@@ -83,7 +83,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/concept.jpg"
+              src="/concept-background.jpg"
               alt="concept background"
               fill
               style={{ objectFit: 'cover' }}
@@ -92,7 +92,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>Concept</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p>&quot;熱の波及&quot;</p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => router.push('/concept')}>
@@ -107,7 +107,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/casts.jpg"
+              src="/casts-background.jpg"
               alt="casts background"
               fill
               style={{ objectFit: 'cover' }}
@@ -116,7 +116,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>Casts</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p>Judges/DJ/MC/Showcases/Battlers</p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => router.push('/casts')}>
@@ -131,7 +131,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/venue.jpg"
+              src="/venue-background.jpg"
               alt="venue background"
               fill
               style={{ objectFit: 'cover' }}
@@ -140,7 +140,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>Venue</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p>六本木CUBE</p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => router.push('/venue')}>
@@ -155,7 +155,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/concept.jpg"
+              src="/concept-background.jpg"
               alt="time-table background"
               fill
               style={{ objectFit: 'cover' }}
@@ -164,7 +164,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>Time Table</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p>13:00 Open - 21:00 Close</p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => router.push('/time-table')}>
@@ -179,7 +179,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/concept.jpg"
+              src="/concept-background.jpg"
               alt="movies background"
               fill
               style={{ objectFit: 'cover' }}
@@ -188,7 +188,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>Movies</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p></p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => router.push('/movies')}>
@@ -203,7 +203,7 @@ export default function Home() {
           >
             <Image
               className={styles.backgroundImage}
-              src="/concept.jpg"
+              src="/concept-background.jpg"
               alt="history background"
               fill
               style={{ objectFit: 'cover' }}
@@ -212,7 +212,7 @@ export default function Home() {
           </motion.div>
           <div className={styles.writing}>
             <h1>History</h1>
-            <p>かっこよくてシンプルなテキスト</p>
+            <p>vol.1のホームページへ</p>
           </div>
           <div className={styles.detailButton}>
             <Button onClick={() => window.open('https://nexus-over.vercel.app', '_blank')}>

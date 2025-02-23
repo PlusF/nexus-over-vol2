@@ -8,7 +8,7 @@ export default function Movies() {
       <main className={styles.main}>
         <h1 className={styles.heading}>Movies</h1>
         <div className="movie-list">
-          <p>coming soon</p>
+          <p>coming soon...</p>
         </div>
       </main>
     </div>

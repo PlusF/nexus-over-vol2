@@ -1,39 +1,51 @@
 'use client'
 import { useState } from 'react';
-import styles from '../home.module.css';
+import styles from '../page.shared.module.css';
 import formStyles from './entry.module.css';
 import { BackButton } from '@/components/BackButton';
 import Button from '@/components/Button';
+import { Entry as EntryType } from '@/types/Entry';
+import { useRouter } from 'next/navigation';
 
 export default function Entry() {
-  const [formData, setFormData] = useState({
-    realName: '',
-    dancerName: '',
-    repTeam: '',
-    generation: '',
-    genre: ''
-  });
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [entry, setEntry] = useState<EntryType>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // ここでフォームデータの送信処理を実装
-    console.log(formData);
+    if (!entry.realName || !entry.entryName || !entry.generation || !entry.genre) {
+      alert('未入力の項目があります');
+      return;
+    }
+    try {
+      setIsLoading(true);
+      await fetch('/api/sheets', {
+        method: 'POST',
+        body: JSON.stringify(entry),
+      });
+      router.push('/entry-list');
+    } catch (error) {
+      console.error(error);
+      alert('エラーが発生しました');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setEntry(prev => ({
       ...prev,
       [name]: value
     }));
   };
 
   return (
-    <div className={styles.entryContainer}>
+    <div className={styles.container}>
       <BackButton />
-      <div className={styles.entryContent}>
-        <h1 className={styles.entryTitle}>ENTRY</h1>
-        <p className={styles.entrySubtitle}>NEO - NExus Over vol.2</p>
+      <main className={styles.main}>
+        <h1 className={styles.heading}>Entry</h1>
         <form className={formStyles.entryForm} onSubmit={handleSubmit}>
           <div className={formStyles.formGroup}>
             <label className={formStyles.label} htmlFor="realName">本名</label>
@@ -42,34 +54,37 @@ export default function Entry() {
               id="realName"
               name="realName"
               className={formStyles.input}
-              value={formData.realName}
+              value={entry?.realName}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
           <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="dancerName">Entry Name</label>
+            <label className={formStyles.label} htmlFor="entryName">Entry Name</label>
             <input
               type="text"
-              id="dancerName"
-              name="dancerName"
+              id="entryName"
+              name="entryName"
               className={formStyles.input}
-              value={formData.dancerName}
+              value={entry?.entryName}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
           <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="repTeam">Rep.</label>
+            <label className={formStyles.label} htmlFor="rep">Rep. (任意)</label>
             <input
               type="text"
-              id="repTeam"
-              name="repTeam"
+              id="rep"
+              name="rep"
               className={formStyles.input}
-              value={formData.repTeam}
+              value={entry?.rep}
               onChange={handleChange}
+              disabled={isLoading}
             />
           </div>
 
@@ -80,9 +95,10 @@ export default function Entry() {
               id="generation"
               name="generation"
               className={formStyles.input}
-              value={formData.generation}
+              value={entry?.generation}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -92,27 +108,48 @@ export default function Entry() {
               id="genre"
               name="genre"
               className={formStyles.select}
-              value={formData.genre}
+              value={entry?.genre}
               onChange={handleChange}
               required
+              disabled={isLoading}
             >
               <option value="">選択してください</option>
+              <option value="break">Breaking</option>
               <option value="hiphop">HipHop</option>
               <option value="house">House</option>
+              <option value="jazz">Jazz</option>
               <option value="lock">Locking</option>
               <option value="pop">Popping</option>
-              <option value="break">Breaking</option>
-              <option value="jazz">Jazz</option>
               <option value="waacking">Waacking</option>
               <option value="other">FreeStyle</option>
             </select>
           </div>
 
           <div className={formStyles.formGroup}>
-            <Button type="submit">送信</Button>
+            <label className={formStyles.label} htmlFor="instagram">Instagram (任意) (@不要)</label>
+            <input
+              type="text"
+              id="instagram"
+              name="instagram"
+              className={formStyles.input}
+              value={entry?.instagram}
+              onChange={handleChange}
+              disabled={isLoading}
+            />
+          </div>
+
+          <div className={formStyles.formGroup}>
+            <Button type="submit" disabled={isLoading}>
+              {isLoading ? '送信中...' : '送信'}
+            </Button>
           </div>
         </form>
-      </div>
+        <div className={formStyles.entryListButton}>
+          <Button onClick={() => router.push('/entry-list')}>
+            Entry一覧
+          </Button>
+        </div>
+      </main>
     </div>
   );
 }
