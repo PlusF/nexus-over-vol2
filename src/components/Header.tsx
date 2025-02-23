@@ -6,16 +6,17 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Menu } from './Menu';
 import { useState } from 'react';
 import Image from 'next/image';
+import imageLoader from '../app/imageLoader';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
+    <div className={styles.header}>
       <div className={styles.container}>
         <div className={styles.placeholder} />
         <Link href="/" className={styles.logo}>
-          <Image src="/logo_trimmed.png" alt="logo" width={50} height={50} />
+          <Image src="/logo_trimmed.png" alt="logo" width={50} height={50} loader={imageLoader} />
         </Link>
         <button
           className={`${styles.menuButton} ${isMenuOpen ? styles.menuOpen : ''}`}
@@ -28,7 +29,7 @@ export const Header = () => {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
       />
-    </>
+    </div>
   );
 };
 
@@ -38,7 +39,6 @@ export const MotionHeader = () => {
 
   return (
     <motion.header
-      className={styles.header}
       style={{ opacity: opacity }}
     >
       <Header />

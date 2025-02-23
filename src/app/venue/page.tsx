@@ -2,6 +2,7 @@ import styles from '../page.shared.module.css';
 import { BackButton } from '@/components/BackButton';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
+import imageLoader from '../imageLoader';
 
 export default function Venue() {
   return (
@@ -13,7 +14,7 @@ export default function Venue() {
           <h1 className={styles.heading}>Venue</h1>
           <div className="venue-info">
             <h2>六本木CUBE</h2>
-            <Image src="/venue.jpg" alt="六本木CUBE" width={300} height={150} />
+            <Image src="/venue.jpg" alt="六本木CUBE" width={300} height={150} loader={imageLoader} />
             <br />
             <h3>住所</h3>
             <p>〒106-0041</p>
