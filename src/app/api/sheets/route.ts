@@ -1,6 +1,8 @@
 import { google } from "googleapis";
 import { JWT } from "google-auth-library";
 
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const privateKey = (process.env.GOOGLE_PRIVATE_KEY || "").replace(
