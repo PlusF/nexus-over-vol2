@@ -1,11 +1,29 @@
 'use client'
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import styles from '../page.shared.module.css';
 import formStyles from './entry.module.css';
 import { BackButton } from '@/components/BackButton';
 import Button from '@/components/Button';
 import { Entry as EntryType } from '@/types/Entry';
 import { useRouter } from 'next/navigation';
+import { Header } from '@/components/Header';
+
+const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/entries';
+
+const postEntry = async (entry: EntryType) => {
+  const response = await fetch(API_ENDPOINT, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: uuidv4(),
+      ...entry
+    })
+  });
+  return response.json();
+};
 
 export default function Entry() {
   const router = useRouter();
@@ -25,12 +43,10 @@ export default function Entry() {
       alert('未入力の項目があります');
       return;
     }
+
     try {
       setIsLoading(true);
-      await fetch('/api/sheets', {
-        method: 'POST',
-        body: JSON.stringify(entry),
-      });
+      await postEntry(entry);
       router.push('/entry-list');
     } catch (error) {
       console.error(error);
@@ -49,115 +65,118 @@ export default function Entry() {
   };
 
   return (
-    <div className={styles.container}>
-      <BackButton />
-      <main className={styles.main}>
-        <h1 className={styles.heading}>Entry</h1>
-        <form className={formStyles.entryForm} onSubmit={handleSubmit}>
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="realName">本名</label>
-            <input
-              type="text"
-              id="realName"
-              name="realName"
-              className={formStyles.input}
-              value={entry?.realName}
-              onChange={handleChange}
-              required
-              disabled={isLoading}
-            />
-          </div>
+    <>
+      <Header />
+      <div className={styles.container}>
+        <BackButton />
+        <main className={styles.main}>
+          <h1 className={styles.heading}>Entry</h1>
+          <form className={formStyles.entryForm} onSubmit={handleSubmit}>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="realName">本名</label>
+              <input
+                type="text"
+                id="realName"
+                name="realName"
+                className={formStyles.input}
+                value={entry?.realName}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+              />
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="entryName">Entry Name</label>
-            <input
-              type="text"
-              id="entryName"
-              name="entryName"
-              className={formStyles.input}
-              value={entry?.entryName}
-              onChange={handleChange}
-              required
-              disabled={isLoading}
-            />
-          </div>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="entryName">Entry Name</label>
+              <input
+                type="text"
+                id="entryName"
+                name="entryName"
+                className={formStyles.input}
+                value={entry?.entryName}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+              />
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="rep">Rep. (任意)</label>
-            <input
-              type="text"
-              id="rep"
-              name="rep"
-              className={formStyles.input}
-              value={entry?.rep}
-              onChange={handleChange}
-              disabled={isLoading}
-            />
-          </div>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="rep">Rep. (任意)</label>
+              <input
+                type="text"
+                id="rep"
+                name="rep"
+                className={formStyles.input}
+                value={entry?.rep}
+                onChange={handleChange}
+                disabled={isLoading}
+              />
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="generation">代</label>
-            <input
-              type="number"
-              id="generation"
-              name="generation"
-              className={formStyles.input}
-              value={entry?.generation}
-              onChange={handleChange}
-              required
-              disabled={isLoading}
-            />
-          </div>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="generation">代</label>
+              <input
+                type="number"
+                id="generation"
+                name="generation"
+                className={formStyles.input}
+                value={entry?.generation}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+              />
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="genre">ジャンル</label>
-            <select
-              id="genre"
-              name="genre"
-              className={formStyles.select}
-              value={entry?.genre}
-              onChange={handleChange}
-              required
-              disabled={isLoading}
-            >
-              <option value="">選択してください</option>
-              <option value="break">Breaking</option>
-              <option value="hiphop">HipHop</option>
-              <option value="house">House</option>
-              <option value="jazz">Jazz</option>
-              <option value="lock">Locking</option>
-              <option value="pop">Popping</option>
-              <option value="waacking">Waacking</option>
-              <option value="other">FreeStyle</option>
-            </select>
-          </div>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="genre">ジャンル</label>
+              <select
+                id="genre"
+                name="genre"
+                className={formStyles.select}
+                value={entry?.genre}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+              >
+                <option value="">選択してください</option>
+                <option value="break">Breaking</option>
+                <option value="hiphop">HipHop</option>
+                <option value="house">House</option>
+                <option value="jazz">Jazz</option>
+                <option value="lock">Locking</option>
+                <option value="pop">Popping</option>
+                <option value="waacking">Waacking</option>
+                <option value="other">FreeStyle</option>
+              </select>
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <label className={formStyles.label} htmlFor="instagram">Instagram (任意) (@不要)</label>
-            <input
-              type="text"
-              id="instagram"
-              name="instagram"
-              className={formStyles.input}
-              value={entry?.instagram}
-              onChange={handleChange}
-              disabled={isLoading}
-            />
-          </div>
+            <div className={formStyles.formGroup}>
+              <label className={formStyles.label} htmlFor="instagram">Instagram (任意) (@不要)</label>
+              <input
+                type="text"
+                id="instagram"
+                name="instagram"
+                className={formStyles.input}
+                value={entry?.instagram}
+                onChange={handleChange}
+                disabled={isLoading}
+              />
+            </div>
 
-          <div className={formStyles.formGroup}>
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? '送信中...' : '送信'}
+            <div className={formStyles.formGroup}>
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? '送信中...' : '送信'}
+              </Button>
+            </div>
+          </form>
+          <div className={formStyles.entryListButton}>
+            <Button onClick={() => router.push('/entry-list')}>
+              Entry一覧
             </Button>
           </div>
-        </form>
-        <div className={formStyles.entryListButton}>
-          <Button onClick={() => router.push('/entry-list')}>
-            Entry一覧
-          </Button>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }
 

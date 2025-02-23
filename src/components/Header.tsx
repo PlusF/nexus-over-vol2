@@ -9,32 +9,39 @@ import Image from 'next/image';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0, 1]);
 
   return (
     <>
-      <motion.header
-        className={styles.header}
-        style={{ opacity: isMenuOpen ? 1 : opacity }}
-      >
-        <div className={styles.container}>
-          <div className={styles.placeholder} />
-          <Link href="/" className={styles.logo}>
-            <Image src="/logo_trimmed.png" alt="logo" width={50} height={50} />
-          </Link>
-          <button
-            className={`${styles.menuButton} ${isMenuOpen ? styles.menuOpen : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <RiCloseLine size={24} /> : <RiMenu3Line size={24} />}
-          </button>
-        </div>
-      </motion.header>
+      <div className={styles.container}>
+        <div className={styles.placeholder} />
+        <Link href="/" className={styles.logo}>
+          <Image src="/logo_trimmed.png" alt="logo" width={50} height={50} />
+        </Link>
+        <button
+          className={`${styles.menuButton} ${isMenuOpen ? styles.menuOpen : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <RiCloseLine size={24} /> : <RiMenu3Line size={24} />}
+        </button>
+      </div>
       <Menu
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
       />
     </>
   );
-}; 
+};
+
+export const MotionHeader = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0, 1]);
+
+  return (
+    <motion.header
+      className={styles.header}
+      style={{ opacity: opacity }}
+    >
+      <Header />
+    </motion.header>
+  );
+}
