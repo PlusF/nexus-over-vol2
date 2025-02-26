@@ -1,18 +1,18 @@
 'use client'
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import sharedStyles from '../page.shared.module.css';
-import styles from './entry.module.css';
+import styles from '../page.shared.module.css';
+import formStyles from './entry.module.css';
 import { BackButton } from '@/components/BackButton';
 import Button from '@/components/Button';
-import { Entry as EntryType } from '@/types/Entry';
-import { useRouter } from 'next/navigation';
+import { Audience as AudienceType } from '@/types/Audience';
 import { Header } from '@/components/Header';
 import { EntryForm } from '@/components/EntryForm';
+import { useRouter } from 'next/navigation';
 
-const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/entries';
+const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/audiences';
 
-const postEntry = async (entry: EntryType) => {
+const postAudience = async (audience: AudienceType) => {
   const response = await fetch(API_ENDPOINT, {
     method: 'PUT',
     headers: {
@@ -20,21 +20,22 @@ const postEntry = async (entry: EntryType) => {
     },
     body: JSON.stringify({
       id: uuidv4(),
-      ...entry
+      ...audience
     })
   });
   return response.json();
 };
 
-export default function Entry() {
+export default function Audience() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (entry: EntryType) => {
+  const handleSubmit = async (audience: AudienceType) => {
     try {
       setIsLoading(true);
-      await postEntry(entry);
-      router.push('/entry-list');
+      await postAudience(audience);
+      alert('申込完了しました');
+      router.push('/');
     } catch (error) {
       console.error(error);
       alert('エラーが発生しました');
@@ -46,20 +47,20 @@ export default function Entry() {
   return (
     <>
       <Header />
-      <div className={sharedStyles.container}>
+      <div className={styles.container}>
         <BackButton />
-        <main className={sharedStyles.main}>
-          <h1 className={sharedStyles.heading}>Entry</h1>
+        <main className={styles.main}>
+          <h1 className={styles.heading}>観戦申込</h1>
           <EntryForm
             onSubmit={handleSubmit}
             isLoading={isLoading}
-            formType="main"
+            formType="audience"
           />
-          <div className={styles.entryListButton}>
-            <Button onClick={() => router.push('/entry-list')}>
-              Entry一覧
+          {/* <div className={formStyles.entryListButton}>
+            <Button onClick={() => router.push('/audience-list')}>
+              観戦者一覧
             </Button>
-          </div>
+          </div> */}
         </main>
       </div>
     </>

@@ -78,6 +78,9 @@ export default function Home() {
           <section className={styles.entryButtonContainer}>
             <NextLinkButton href="/entry">Entry</NextLinkButton>
           </section>
+          <section className={styles.audienceButtonContainer}>
+            <NextLinkButton href="/audience">観戦申込</NextLinkButton>
+          </section>
           <section className={styles.sectionContainer}>
             <motion.div
               className={styles.background}
@@ -224,6 +227,12 @@ export default function Home() {
           </section>
           <section className={styles.entryButtonContainer}>
             <NextLinkButton href="/entry">Entry</NextLinkButton>
+          </section>
+          <section className={styles.audienceButtonContainer}>
+            <NextLinkButton href="/audience">観戦申込</NextLinkButton>
+          </section>
+          <section className={styles.prelimButtonContainer}>
+            <NextLinkButton href="/prelim">現役予選特設ページ☞</NextLinkButton>
           </section>
         </main>
       </div>

@@ -1,0 +1,86 @@
+.dateSection {
+  text-align: center;
+}
+
+.date {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.location {
+  font-size: 1.2rem;
+}
+
+
+.judgeContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.judgeCard {
+  text-align: center;
+}
+
+.judgeImage {
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.judgeImage:hover {
+  transform: scale(1.05);
+}
+
+.judgeRep {
+  font-size: 0.7rem;
+}
+
+.judgeName {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.judgesSection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.judgesHeading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.rulesSection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.rulesHeading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.rulesContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.rulesList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.entrySection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.entryHeading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
