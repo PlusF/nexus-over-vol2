@@ -1,18 +1,15 @@
-'use client'
+'use client';
 import { useRouter } from 'next/navigation';
+import { IoArrowBack } from 'react-icons/io5';
+
 import styles from './BackButton.module.css';
-import { IoArrowBack } from "react-icons/io5";
 
 export const BackButton = () => {
   const router = useRouter();
 
   return (
-    <button
-      onClick={() => router.back()}
-      className={styles.backButton}
-      aria-label="戻る"
-    >
+    <button aria-label="戻る" className={styles.backButton} onClick={() => router.back()}>
       <IoArrowBack size={24} />
     </button>
   );
-}; 
+};

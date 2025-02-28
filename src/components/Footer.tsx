@@ -1,4 +1,5 @@
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
+
 import styles from './Footer.module.css';
 
 export const Footer = () => {
@@ -10,18 +11,18 @@ export const Footer = () => {
         </div>
         <div className={styles.socialLinks}>
           <a
-            href="https://instagram.com/neo_wish"
-            target="_blank"
-            rel="noopener noreferrer"
             className={styles.socialLink}
+            href="https://instagram.com/neo_wish"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <FaInstagram />
           </a>
           <a
-            href="https://youtube.com/@NExusOver"
-            target="_blank"
-            rel="noopener noreferrer"
             className={styles.socialLink}
+            href="https://youtube.com/@NExusOver"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <FaYoutube />
           </a>
@@ -30,4 +31,3 @@ export const Footer = () => {
     </footer>
   );
 };
-

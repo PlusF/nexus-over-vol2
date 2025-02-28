@@ -1,73 +1,42 @@
-'use client'
-import styles from "./Home.module.css";
-import { HomeLogo } from "@/components/HomeLogo";
-import NextLinkButton from '@/components/NextLinkButton';
+'use client';
+import { useScroll, motion, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Button from "@/components/Button";
-import { useScroll, motion, useTransform } from "framer-motion";
-import Image from "next/image";
-import imageLoader from "./imageLoader";
-import { MotionHeader } from "@/components/Header";
+
+import Button from '@/components/Button';
+import { MotionHeader } from '@/components/Header';
+import { HomeLogo } from '@/components/HomeLogo';
+import NextLinkButton from '@/components/NextLinkButton';
+
+import styles from './Home.module.css';
+import imageLoader from './imageLoader';
+
 export default function Home() {
   const router = useRouter();
   const { scrollYProgress } = useScroll();
 
   const offset = 0.1;
   const duration = 0.2;
-  const interval = 0.11;
+  const interval = 0.1;
 
   const range = (index: number) => {
-    return [offset + index * interval, offset + index * interval + duration]
-  }
+    return [offset + index * interval, offset + index * interval + duration];
+  };
+  const xRange = [-500, 0];
+  const opacityRange = [0, 0.5];
 
-  const xRange1 = useTransform(scrollYProgress,
-    range(0),
-    [-500, 0]
-  )
-  const opacityRange1 = useTransform(scrollYProgress,
-    range(0),
-    [0, 0.5]
-  )
-  const xRange2 = useTransform(scrollYProgress,
-    range(1),
-    [-500, 0]
-  )
-  const opacityRange2 = useTransform(scrollYProgress,
-    range(1),
-    [0, 0.5]
-  )
-  const xRange3 = useTransform(scrollYProgress,
-    range(2),
-    [-500, 0]
-  )
-  const opacityRange3 = useTransform(scrollYProgress,
-    range(2),
-    [0, 0.5]
-  )
-  const xRange4 = useTransform(scrollYProgress,
-    range(3),
-    [-500, 0]
-  )
-  const opacityRange4 = useTransform(scrollYProgress,
-    range(3),
-    [0, 0.5]
-  )
-  const xRange5 = useTransform(scrollYProgress,
-    range(4),
-    [-500, 0]
-  )
-  const opacityRange5 = useTransform(scrollYProgress,
-    range(4),
-    [0, 0.5]
-  )
-  const xRange6 = useTransform(scrollYProgress,
-    range(5),
-    [-500, 0]
-  )
-  const opacityRange6 = useTransform(scrollYProgress,
-    range(5),
-    [0, 0.5]
-  )
+  const xRange1 = useTransform(scrollYProgress, range(0), xRange);
+  const opacityRange1 = useTransform(scrollYProgress, range(0), opacityRange);
+  const xRange2 = useTransform(scrollYProgress, range(1), xRange);
+  const opacityRange2 = useTransform(scrollYProgress, range(1), opacityRange);
+  const xRange3 = useTransform(scrollYProgress, range(2), xRange);
+  const opacityRange3 = useTransform(scrollYProgress, range(2), opacityRange);
+  const xRange4 = useTransform(scrollYProgress, range(3), xRange);
+  const opacityRange4 = useTransform(scrollYProgress, range(3), opacityRange);
+  const xRange5 = useTransform(scrollYProgress, range(4), xRange);
+  const opacityRange5 = useTransform(scrollYProgress, range(4), opacityRange);
+  const xRange6 = useTransform(scrollYProgress, range(5), xRange);
+  const opacityRange6 = useTransform(scrollYProgress, range(5), opacityRange);
 
   return (
     <>
@@ -87,12 +56,12 @@ export default function Home() {
               style={{ x: xRange1, opacity: opacityRange1 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/concept-background.jpg"
-                alt="concept background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="concept background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/concept-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>
@@ -100,9 +69,7 @@ export default function Home() {
               <p>&quot;熱の波及&quot;</p>
             </div>
             <div className={styles.detailButton}>
-              <Button onClick={() => router.push('/concept')}>
-                詳細 ☞
-              </Button>
+              <Button onClick={() => router.push('/concept')}>詳細 ☞</Button>
             </div>
           </section>
           <section className={styles.sectionContainer}>
@@ -111,12 +78,12 @@ export default function Home() {
               style={{ x: xRange2, opacity: opacityRange2 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/casts-background.jpg"
-                alt="casts background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="casts background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/casts-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>
@@ -124,9 +91,7 @@ export default function Home() {
               <p>Judges/DJ/MC/Showcases/Battlers</p>
             </div>
             <div className={styles.detailButton}>
-              <Button onClick={() => router.push('/casts')}>
-                詳細 ☞
-              </Button>
+              <Button onClick={() => router.push('/casts')}>詳細 ☞</Button>
             </div>
           </section>
           <section className={styles.sectionContainer}>
@@ -135,12 +100,12 @@ export default function Home() {
               style={{ x: xRange3, opacity: opacityRange3 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/venue-background.jpg"
-                alt="venue background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="venue background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/venue-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>
@@ -148,9 +113,7 @@ export default function Home() {
               <p>六本木CUBE</p>
             </div>
             <div className={styles.detailButton}>
-              <Button onClick={() => router.push('/venue')}>
-                詳細 ☞
-              </Button>
+              <Button onClick={() => router.push('/venue')}>詳細 ☞</Button>
             </div>
           </section>
           <section className={styles.sectionContainer}>
@@ -159,22 +122,20 @@ export default function Home() {
               style={{ x: xRange4, opacity: opacityRange4 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/concept-background.jpg"
-                alt="time-table background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="time-table background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/concept-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>
               <h1>Time Table</h1>
-              <p>13:00 Open - 21:00 Close</p>
+              <p>13:00 Open - 20:00 Close</p>
             </div>
             <div className={styles.detailButton}>
-              <Button onClick={() => router.push('/time-table')}>
-                詳細 ☞
-              </Button>
+              <Button onClick={() => router.push('/time-table')}>詳細 ☞</Button>
             </div>
           </section>
           <section className={styles.sectionContainer}>
@@ -183,12 +144,12 @@ export default function Home() {
               style={{ x: xRange5, opacity: opacityRange5 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/concept-background.jpg"
-                alt="movies background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="movies background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/concept-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>
@@ -196,9 +157,7 @@ export default function Home() {
               <p></p>
             </div>
             <div className={styles.detailButton}>
-              <Button onClick={() => router.push('/movies')}>
-                詳細 ☞
-              </Button>
+              <Button onClick={() => router.push('/movies')}>詳細 ☞</Button>
             </div>
           </section>
           <section className={styles.sectionContainer}>
@@ -207,12 +166,12 @@ export default function Home() {
               style={{ x: xRange6, opacity: opacityRange6 }}
             >
               <Image
-                className={styles.backgroundImage}
-                src="/concept-background.jpg"
-                alt="history background"
                 fill
-                style={{ objectFit: 'cover' }}
+                alt="history background"
+                className={styles.backgroundImage}
                 loader={imageLoader}
+                src="/concept-background.jpg"
+                style={{ objectFit: 'cover' }}
               />
             </motion.div>
             <div className={styles.writing}>

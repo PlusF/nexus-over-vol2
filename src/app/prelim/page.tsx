@@ -1,14 +1,17 @@
 'use client';
-import { Header } from '@/components/Header';
-import sharedStyles from '@/app/page.shared.module.css';
-import styles from './Prelim.module.css';
-import { BackButton } from '@/components/BackButton';
 import Image from 'next/image';
-import { EntryForm } from '@/components/EntryForm';
-import { Entry as EntryType } from '@/types/Entry';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
+import imageLoader from '@/app/imageLoader';
+import sharedStyles from '@/app/page.shared.module.css';
+import { BackButton } from '@/components/BackButton';
+import { EntryForm } from '@/components/EntryForm';
+import { Header } from '@/components/Header';
+import { Entry as EntryType } from '@/types/Entry';
+
+import styles from './Prelim.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/prelim-entries';
 
@@ -20,8 +23,8 @@ const postEntry = async (entry: EntryType) => {
     },
     body: JSON.stringify({
       id: uuidv4(),
-      ...entry
-    })
+      ...entry,
+    }),
   });
   return response.json();
 };
@@ -62,22 +65,24 @@ export default function Prelim() {
             <div className={styles.judgeContainer}>
               <div className={styles.judgeCard}>
                 <Image
-                  src="/prelim-judge-1.jpg"
                   alt="Judge 1"
-                  width={150}
-                  height={200}
                   className={styles.judgeImage}
+                  height={200}
+                  loader={imageLoader}
+                  src="/prelim-judge-1.jpg"
+                  width={150}
                 />
                 <p className={styles.judgeName}>Tait Angle</p>
                 <p className={styles.judgeRep}>35th/LDC</p>
               </div>
               <div className={styles.judgeCard}>
                 <Image
-                  src="/prelim-judge-2.jpg"
                   alt="Judge 2"
-                  width={150}
-                  height={200}
                   className={styles.judgeImage}
+                  height={200}
+                  loader={imageLoader}
+                  src="/prelim-judge-2.jpg"
+                  width={150}
                 />
                 <p className={styles.judgeName}>Frederick</p>
                 <p className={styles.judgeRep}>43rd/chic grandpas/肩の友/So-hait</p>
@@ -92,6 +97,7 @@ export default function Prelim() {
                 <li>45, 46, 47代のみ参加可能</li>
                 <li>1on1 フルトーナメント</li>
                 <li>優勝者は本戦トーナメント出場権獲得</li>
+                <li>敗退者は当日予選も参加可能</li>
                 <li>参加費 ¥1,000</li>
               </ul>
             </div>
@@ -99,14 +105,10 @@ export default function Prelim() {
 
           <section className={styles.entrySection}>
             <h2 className={styles.entryHeading}>現役予選Entry</h2>
-            <EntryForm
-              onSubmit={handleSubmit}
-              isLoading={isLoading}
-              formType="prelim"
-            />
+            <EntryForm formType="prelim" isLoading={isLoading} onSubmit={handleSubmit} />
           </section>
         </main>
       </div>
     </>
   );
-} 
+}

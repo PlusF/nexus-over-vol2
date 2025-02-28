@@ -7,14 +7,14 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export default function Button({ children, onClick, type = 'button', disabled = false }: ButtonProps) {
+export default function Button({
+  children,
+  onClick,
+  type = 'button',
+  disabled = false,
+}: ButtonProps) {
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={styles.button}
-      disabled={disabled}
-    >
+    <button className={styles.button} disabled={disabled} type={type} onClick={onClick}>
       {children}
     </button>
   );

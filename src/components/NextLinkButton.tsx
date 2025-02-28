@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import styles from './Button.module.css';
 
 interface NextLinkButtonProps {
@@ -9,11 +10,7 @@ interface NextLinkButtonProps {
 
 export default function NextLinkButton({ children, href, onClick }: NextLinkButtonProps) {
   return (
-    <Link
-      href={href}
-      className={styles.button}
-      onClick={onClick}
-    >
+    <Link className={styles.button} href={href} onClick={onClick}>
       {children}
     </Link>
   );

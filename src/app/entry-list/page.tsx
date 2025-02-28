@@ -1,11 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
-import sharedStyles from '../page.shared.module.css';
-import entryListStyles from './EntryList.module.css';
-import { BackButton } from '@/components/BackButton';
-import { Entry } from '@/types/Entry';
 import { FaInstagram } from 'react-icons/fa';
+
+import { BackButton } from '@/components/BackButton';
 import { Header } from '@/components/Header';
+import { Entry } from '@/types/Entry';
+
+import sharedStyles from '../page.shared.module.css';
+
+import entryListStyles from './EntryList.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/entries';
 
@@ -43,38 +46,44 @@ export default function EntryList() {
           <div className="entry-list">
             {isLoading ? (
               <p>Loading...</p>
+            ) : entries.length === 0 ? (
+              <p>No entries found</p>
             ) : (
-              entries.length === 0 ? (
-                <p>No entries found</p>
-              ) : (
-                <>
-                  {entries.map((entry, index) => {
-                    const characterCount = (entry.generation?.length || 0) + (entry.genre?.length || 0) + (entry.entryName?.length || 0) + (entry.rep ? entry.rep.length : 0);
-                    const fontSize = Math.min(12 / (characterCount - 8), 1.5);
-                    return (
-                      <div key={`entry-${index}`} className={entryListStyles.entryContainer}>
-                        <div className={entryListStyles.entryInfo}>
-                          {entry.generation} {entry.genre}
-                          <div style={{ fontSize: `${fontSize}rem` }}>
-                            {entry.entryName} {entry.rep ? `rep. ${entry.rep}` : ''}
-                          </div>
+              <>
+                {entries.map((entry, index) => {
+                  const characterCount =
+                    (entry.generation?.length || 0) +
+                    (entry.genre?.length || 0) +
+                    (entry.entryName?.length || 0) +
+                    (entry.rep ? entry.rep.length : 0);
+                  const fontSize = Math.min(12 / (characterCount - 8), 1.5);
+                  return (
+                    <div key={`entry-${index}`} className={entryListStyles.entryContainer}>
+                      <div className={entryListStyles.entryInfo}>
+                        {entry.generation} {entry.genre}
+                        <div style={{ fontSize: `${fontSize}rem` }}>
+                          {entry.entryName} {entry.rep ? `rep. ${entry.rep}` : ''}
                         </div>
-                        {entry.instagram && (
-                          <div className={entryListStyles.instagram}>
-                            <a href={`https://www.instagram.com/${entry.instagram}`} target="_blank" rel="noopener noreferrer">
-                              <FaInstagram />
-                            </a>
-                          </div>
-                        )}
                       </div>
-                    );
-                  })}
-                </>
-              )
+                      {entry.instagram && (
+                        <div className={entryListStyles.instagram}>
+                          <a
+                            href={`https://www.instagram.com/${entry.instagram}`}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <FaInstagram />
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </>
             )}
           </div>
         </main>
       </div>
     </>
   );
-} 
+}

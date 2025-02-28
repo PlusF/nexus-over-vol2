@@ -1,6 +1,7 @@
-import { Header } from '@/components/Header';
-import styles from '../page.shared.module.css';
 import { BackButton } from '@/components/BackButton';
+import { Header } from '@/components/Header';
+
+import styles from '../page.shared.module.css';
 
 export default function Concept() {
   return (
@@ -17,4 +18,4 @@ export default function Concept() {
       </div>
     </>
   );
-} 
+}

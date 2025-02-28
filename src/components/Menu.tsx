@@ -1,7 +1,8 @@
-'use client'
+'use client';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './Menu.module.css';
 import Link from 'next/link';
+
+import styles from './Menu.module.css';
 import NextLinkButton from './NextLinkButton';
 
 interface MenuProps {
@@ -15,17 +16,17 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
       {isOpen && (
         <>
           <motion.div
-            className={styles.overlay}
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            className={styles.overlay}
             exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
             onClick={onClose}
           />
           <motion.div
-            className={styles.menu}
-            initial={{ x: '100%' }}
             animate={{ x: 0 }}
+            className={styles.menu}
             exit={{ x: '100%' }}
+            initial={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
           >
             <nav className={styles.nav}>
@@ -35,11 +36,21 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
                 </NextLinkButton>
               </div>
               <div className={styles.links}>
-                <Link href="/concept" onClick={onClose}>Concept</Link>
-                <Link href="/casts" onClick={onClose}>Casts</Link>
-                <Link href="/venue" onClick={onClose}>Venue</Link>
-                <Link href="/time-table" onClick={onClose}>Time Table</Link>
-                <Link href="/movies" onClick={onClose}>Movies</Link>
+                <Link href="/concept" onClick={onClose}>
+                  Concept
+                </Link>
+                <Link href="/casts" onClick={onClose}>
+                  Casts
+                </Link>
+                <Link href="/venue" onClick={onClose}>
+                  Venue
+                </Link>
+                <Link href="/time-table" onClick={onClose}>
+                  Time Table
+                </Link>
+                <Link href="/movies" onClick={onClose}>
+                  Movies
+                </Link>
               </div>
             </nav>
           </motion.div>
@@ -47,4 +58,4 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
       )}
     </AnimatePresence>
   );
-}; 
+};

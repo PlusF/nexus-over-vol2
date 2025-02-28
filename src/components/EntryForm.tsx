@@ -1,8 +1,10 @@
-'use client'
+'use client';
 import { useState } from 'react';
+
 import { Entry as EntryType } from '@/types/Entry';
-import formStyles from './EntryForm.module.css';
+
 import Button from './Button';
+import formStyles from './EntryForm.module.css';
 
 type FormType = 'main' | 'prelim' | 'audience';
 
@@ -21,7 +23,7 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
     generation: '',
     genre: '',
     instagram: '',
-    ...initialValues
+    ...initialValues,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,7 +42,7 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
     const { name, value } = e.target;
     setEntry(prev => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -60,74 +62,84 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
   return (
     <form className={formStyles.entryForm} onSubmit={handleSubmit}>
       <div className={formStyles.formGroup}>
-        <label className={formStyles.label} htmlFor="realName">本名</label>
+        <label className={formStyles.label} htmlFor="realName">
+          本名
+        </label>
         <input
-          type="text"
+          required
+          className={formStyles.input}
+          disabled={isLoading}
           id="realName"
           name="realName"
-          className={formStyles.input}
+          type="text"
           value={entry?.realName}
           onChange={handleChange}
-          required
-          disabled={isLoading}
         />
       </div>
 
       {formType !== 'audience' && (
         <div className={formStyles.formGroup}>
-          <label className={formStyles.label} htmlFor="entryName">Entry Name</label>
+          <label className={formStyles.label} htmlFor="entryName">
+            Entry Name
+          </label>
           <input
-            type="text"
+            required
+            className={formStyles.input}
+            disabled={isLoading}
             id="entryName"
             name="entryName"
-            className={formStyles.input}
+            type="text"
             value={entry?.entryName}
             onChange={handleChange}
-            required
-            disabled={isLoading}
           />
         </div>
       )}
 
       {formType === 'main' && (
         <div className={formStyles.formGroup}>
-          <label className={formStyles.label} htmlFor="rep">Rep.</label>
+          <label className={formStyles.label} htmlFor="rep">
+            Rep.
+          </label>
           <input
-            type="text"
+            className={formStyles.input}
+            disabled={isLoading}
             id="rep"
             name="rep"
-            className={formStyles.input}
+            type="text"
             value={entry?.rep}
             onChange={handleChange}
-            disabled={isLoading}
           />
         </div>
       )}
 
       <div className={formStyles.formGroup}>
-        <label className={formStyles.label} htmlFor="generation">代</label>
+        <label className={formStyles.label} htmlFor="generation">
+          代
+        </label>
         <input
-          type="number"
+          required
+          className={formStyles.input}
+          disabled={isLoading}
           id="generation"
           name="generation"
-          className={formStyles.input}
+          type="number"
           value={entry?.generation}
           onChange={handleChange}
-          required
-          disabled={isLoading}
         />
       </div>
 
       <div className={formStyles.formGroup}>
-        <label className={formStyles.label} htmlFor="genre">ジャンル</label>
+        <label className={formStyles.label} htmlFor="genre">
+          ジャンル
+        </label>
         <select
+          required
+          className={formStyles.select}
+          disabled={isLoading}
           id="genre"
           name="genre"
-          className={formStyles.select}
           value={entry?.genre}
           onChange={handleChange}
-          required
-          disabled={isLoading}
         >
           <option value="">選択してください</option>
           <option value="break">Breaking</option>
@@ -147,22 +159,22 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
             Instagram
           </label>
           <input
-            type="text"
+            className={formStyles.input}
             id="instagram"
             name="instagram"
-            className={formStyles.input}
+            placeholder="@なしで入力してください"
+            type="text"
             value={entry?.instagram || ''}
             onChange={handleChange}
-            placeholder="@なしで入力してください"
           />
         </div>
       )}
 
       <div className={formStyles.formGroup}>
-        <Button type="submit" disabled={isLoading}>
+        <Button disabled={isLoading} type="submit">
           {isLoading ? '送信中...' : '送信'}
         </Button>
       </div>
     </form>
   );
-} 
+}

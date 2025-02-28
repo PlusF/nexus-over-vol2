@@ -1,14 +1,17 @@
-'use client'
+'use client';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import sharedStyles from '../page.shared.module.css';
-import styles from './entry.module.css';
+
 import { BackButton } from '@/components/BackButton';
 import Button from '@/components/Button';
-import { Entry as EntryType } from '@/types/Entry';
-import { useRouter } from 'next/navigation';
-import { Header } from '@/components/Header';
 import { EntryForm } from '@/components/EntryForm';
+import { Header } from '@/components/Header';
+import { Entry as EntryType } from '@/types/Entry';
+
+import sharedStyles from '../page.shared.module.css';
+
+import styles from './entry.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/entries';
 
@@ -20,8 +23,8 @@ const postEntry = async (entry: EntryType) => {
     },
     body: JSON.stringify({
       id: uuidv4(),
-      ...entry
-    })
+      ...entry,
+    }),
   });
   return response.json();
 };
@@ -50,19 +53,12 @@ export default function Entry() {
         <BackButton />
         <main className={sharedStyles.main}>
           <h1 className={sharedStyles.heading}>Entry</h1>
-          <EntryForm
-            onSubmit={handleSubmit}
-            isLoading={isLoading}
-            formType="main"
-          />
+          <EntryForm formType="main" isLoading={isLoading} onSubmit={handleSubmit} />
           <div className={styles.entryListButton}>
-            <Button onClick={() => router.push('/entry-list')}>
-              Entry一覧
-            </Button>
+            <Button onClick={() => router.push('/entry-list')}>Entry一覧</Button>
           </div>
         </main>
       </div>
     </>
   );
 }
-

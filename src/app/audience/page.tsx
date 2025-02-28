@@ -1,14 +1,14 @@
-'use client'
+'use client';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import styles from '../page.shared.module.css';
-import formStyles from './entry.module.css';
+
 import { BackButton } from '@/components/BackButton';
-import Button from '@/components/Button';
-import { Audience as AudienceType } from '@/types/Audience';
-import { Header } from '@/components/Header';
 import { EntryForm } from '@/components/EntryForm';
-import { useRouter } from 'next/navigation';
+import { Header } from '@/components/Header';
+import { Audience as AudienceType } from '@/types/Audience';
+
+import styles from '../page.shared.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/audiences';
 
@@ -20,8 +20,8 @@ const postAudience = async (audience: AudienceType) => {
     },
     body: JSON.stringify({
       id: uuidv4(),
-      ...audience
-    })
+      ...audience,
+    }),
   });
   return response.json();
 };
@@ -51,11 +51,7 @@ export default function Audience() {
         <BackButton />
         <main className={styles.main}>
           <h1 className={styles.heading}>観戦申込</h1>
-          <EntryForm
-            onSubmit={handleSubmit}
-            isLoading={isLoading}
-            formType="audience"
-          />
+          <EntryForm formType="audience" isLoading={isLoading} onSubmit={handleSubmit} />
           {/* <div className={formStyles.entryListButton}>
             <Button onClick={() => router.push('/audience-list')}>
               観戦者一覧
@@ -66,4 +62,3 @@ export default function Audience() {
     </>
   );
 }
-
