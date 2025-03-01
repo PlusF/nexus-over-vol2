@@ -51,6 +51,9 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
                 <Link href="/movies" onClick={onClose}>
                   Movies
                 </Link>
+                <Link href="/prelim" onClick={onClose}>
+                  現役予選
+                </Link>
               </div>
             </nav>
           </motion.div>
