@@ -51,7 +51,20 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
                 <Link href="/movies" onClick={onClose}>
                   Movies
                 </Link>
-                <Link href="/prelim" onClick={onClose}>
+                <a
+                  className={styles.externalLink}
+                  href="https://nexus-over.com/history/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                >
+                  History
+                </a>
+                <Link 
+                  className={styles.prelimLink}
+                  href="/prelim" 
+                  onClick={onClose}
+                >
                   現役予選
                 </Link>
               </div>
