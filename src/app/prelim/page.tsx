@@ -73,7 +73,7 @@ export default function Prelim() {
                   width={150}
                 />
                 <p className={styles.judgeName}>Tait Angle</p>
-                <p className={styles.judgeRep}>35th/LDC</p>
+                <p className={styles.judgeRep}>35th / LDC</p>
               </div>
               <div className={styles.judgeCard}>
                 <Image
@@ -85,7 +85,37 @@ export default function Prelim() {
                   width={150}
                 />
                 <p className={styles.judgeName}>Frederick</p>
-                <p className={styles.judgeRep}>43rd/chic grandpas/肩の友/So-hait</p>
+                <p className={styles.judgeRep}>43rd / chic grandpas / 肩の友 / So-hait</p>
+              </div>
+            </div>
+          </section>
+          <section className={styles.judgesSection}>
+            <div className={styles.judgeContainer}>
+              <div className={styles.judgeCard}>
+              <h2 className={styles.judgesHeading}>DJ</h2>
+                <Image
+                  alt="DJ"
+                  className={styles.judgeImage}
+                  height={200}
+                  loader={imageLoader}
+                  src="/prelim-dj.jpg"
+                  width={150}
+                />
+                <p className={styles.judgeName}>ニトロゼウス</p>
+                <p className={styles.judgeRep}>39th / FreeFront / MightyBeatBation</p>
+              </div>
+              <div className={styles.judgeCard}>
+              <h2 className={styles.judgesHeading}>MC</h2>
+                <Image
+                  alt="Judge 2"
+                  className={styles.judgeImage}
+                  height={200}
+                  loader={imageLoader}
+                  src="/mc.jpg"
+                  width={150}
+                />
+                <p className={styles.judgeName}>かかと</p>
+                <p className={styles.judgeRep}>44th / フローライト / Buckdown / So-hait</p>
               </div>
             </div>
           </section>

@@ -50,11 +50,11 @@ export default function Audience() {
       <div className={styles.container}>
         <BackButton />
         <main className={styles.main}>
-          <h1 className={styles.heading}>観戦申込</h1>
+          <h1 className={styles.heading}>観覧申込</h1>
           <EntryForm formType="audience" isLoading={isLoading} onSubmit={handleSubmit} />
           {/* <div className={formStyles.entryListButton}>
             <Button onClick={() => router.push('/audience-list')}>
-              観戦者一覧
+              観覧者一覧
             </Button>
           </div> */}
         </main>

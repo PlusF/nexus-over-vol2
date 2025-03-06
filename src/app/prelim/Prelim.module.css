@@ -18,7 +18,6 @@
 }
 
 .judgeCard {
-  text-align: center;
 }
 
 .judgeImage {
@@ -33,6 +32,7 @@
 
 .judgeRep {
   font-size: 0.7rem;
+  max-width: 150px;
 }
 
 .judgeName {
@@ -41,13 +41,13 @@
 }
 
 .judgesSection {
-  margin: 4rem 0;
+  margin: 4rem 0 0 0;
   text-align: center;
 }
 
 .judgesHeading {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: bold;
 }
 

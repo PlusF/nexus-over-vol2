@@ -1,0 +1,86 @@
+.conceptSection,
+.messageSection {
+  margin: 0 0 4rem 0;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 2px;
+  background-color: #fff;
+}
+
+.conceptText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.messageCard {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+
+.messageCard:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.imageContainer {
+  flex: 0 0 250px;
+  height: 250px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.messageContent {
+  flex: 1;
+}
+
+.messageName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.messageRole {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+.messageText {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .messageCard,
+  .messageCard:nth-child(even) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .imageContainer {
+    flex: 0 0 200px;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+  }
+} 
