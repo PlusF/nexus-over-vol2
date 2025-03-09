@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { ulid } from 'ulid';
 
 import { BackButton } from '@/components/BackButton';
 import Button from '@/components/Button';
@@ -22,7 +22,7 @@ const postEntry = async (entry: EntryType) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      id: uuidv4(),
+      id: ulid(),
       ...entry,
     }),
   });

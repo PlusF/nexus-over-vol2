@@ -132,7 +132,7 @@ export default function Home() {
             </motion.div>
             <div className={styles.writing}>
               <h1>Time Table</h1>
-              <p>13:00 Open - 20:00 Close</p>
+              <p>13:00 Open - 18:30 Close</p>
             </div>
             <div className={styles.detailButton}>
               <Button onClick={() => router.push('/time-table')}>詳細 ☞</Button>
@@ -154,7 +154,8 @@ export default function Home() {
             </motion.div>
             <div className={styles.writing}>
               <h1>Movies</h1>
-              <p></p>
+              <p>準告知映像（2025.3.7 公開）</p>
+              <p style={{ color: '#aaa' }}>本告知映像（coming soon...）</p>
             </div>
             <div className={styles.detailButton}>
               <Button onClick={() => router.push('/movies')}>詳細 ☞</Button>

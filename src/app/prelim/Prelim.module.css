@@ -1,23 +1,32 @@
 .dateSection {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .date {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .location {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: #aaa;
 }
 
 .judgeContainer {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .judgeCard {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
 }
 
 .judgeImage {
@@ -41,44 +50,123 @@
 }
 
 .judgesSection {
-  margin: 4rem 0 0 0;
+  margin: 0 0 4rem 0;
+  width: 100%;
   text-align: center;
 }
 
 .judgesHeading {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.judgesHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 2px;
+  background-color: #fff;
 }
 
 .rulesSection {
-  margin: 4rem 0;
+  margin: 0 0 4rem 0;
+  width: 100%;
   text-align: center;
 }
 
 .rulesHeading {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.rulesHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 2px;
+  background-color: #fff;
 }
 
 .rulesContainer {
-  display: flex;
-  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
 
 .rulesList {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  font-size: 1.2rem;
+  line-height: 2;
 }
 
 .entrySection {
-  margin: 4rem 0;
+  margin: 0 0 4rem 0;
+  width: 100%;
   text-align: center;
 }
 
 .entryHeading {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 2rem;
-  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+.entryHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 2px;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .date {
+    font-size: 1.5rem;
+  }
+
+  .location {
+    font-size: 1.2rem;
+  }
+
+  .judgeContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .judgeCard {
+    min-width: 100%;
+  }
+
+  .rulesList {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .judgeContainer {
+    padding: 0 0.5rem;
+  }
 }

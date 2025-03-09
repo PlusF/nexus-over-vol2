@@ -1,25 +1,25 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { ulid } from 'ulid';
 
 import { BackButton } from '@/components/BackButton';
 import { EntryForm } from '@/components/EntryForm';
 import { Header } from '@/components/Header';
-import { Audience as AudienceType } from '@/types/Audience';
+import { Entry as EntryType } from '@/types/Entry';
 
 import styles from '../page.shared.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/audiences';
 
-const postAudience = async (audience: AudienceType) => {
+const postAudience = async (audience: EntryType) => {
   const response = await fetch(API_ENDPOINT, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      id: uuidv4(),
+      id: ulid(),
       ...audience,
     }),
   });
@@ -30,7 +30,7 @@ export default function Audience() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (audience: AudienceType) => {
+  const handleSubmit = async (audience: EntryType) => {
     try {
       setIsLoading(true);
       await postAudience(audience);

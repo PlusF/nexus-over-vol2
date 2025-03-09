@@ -98,7 +98,7 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
       {formType === 'main' && (
         <div className={formStyles.formGroup}>
           <label className={formStyles.label} htmlFor="rep">
-            Rep.
+            Rep. (任意)
           </label>
           <input
             className={formStyles.input}
@@ -142,21 +142,21 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
           onChange={handleChange}
         >
           <option value="">選択してください</option>
-          <option value="break">Breaking</option>
-          <option value="hiphop">HipHop</option>
-          <option value="house">House</option>
-          <option value="jazz">Jazz</option>
-          <option value="lock">Locking</option>
-          <option value="pop">Popping</option>
-          <option value="waacking">Waacking</option>
-          <option value="other">FreeStyle</option>
+          <option value="Breaking">Breaking</option>
+          <option value="HipHop">HipHop</option>
+          <option value="House">House</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Locking">Locking</option>
+          <option value="Popping">Popping</option>
+          <option value="Waacking">Waacking</option>
+          <option value="FreeStyle">FreeStyle</option>
         </select>
       </div>
 
       {formType === 'main' && (
         <div className={formStyles.formGroup}>
           <label className={formStyles.label} htmlFor="instagram">
-            Instagram
+            Instagram (任意)
           </label>
           <input
             className={formStyles.input}

@@ -21,7 +21,6 @@
 }
 
 .imageContainer {
-  position: absolute;
   top: 50%;
   left: 10%;
   width: 80%;
@@ -29,20 +28,19 @@
 }
 
 .image {
-  position: relative;
   width: 100%;
+  max-width: 300px;
   height: unset;
 }
 
-/* スマートフォンサイズ */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .card {
     height: 250px;
     padding: 0.75rem;
   }
 }
 
-/* タブレットサイズ */
+/* タブレットサイズ
 @media (min-width: 481px) and (max-width: 768px) {
   .card {
     height: 225px;
@@ -53,4 +51,4 @@
   .card {
     border-color: #333;
   }
-}
+} */
