@@ -10,12 +10,22 @@ interface EntryCardProps {
 }
 
 export const EntryCard = ({ entry, index }: EntryCardProps) => {
-  const characterCount =
-    (entry.generation?.length || 0) +
-    (entry.genre?.length || 0) +
-    (entry.entryName?.length || 0) +
-    (entry.rep ? entry.rep.length : 0);
-  const fontSize = Math.min(12 / (characterCount - 8), 1.5);
+  const getCharacterWidth = (str: string): number => {
+    return Array.from(str).reduce((acc, char) => {
+      // 全角文字は2、半角文字は1としてカウント
+      return acc + (char.match(/[^\x01-\x7E\xA1-\xDF]/) ? 2 : 1);
+    }, 0);
+  };
+
+  const characterWidth =
+    getCharacterWidth(entry.generation || '') +
+    getCharacterWidth(entry.genre || '') +
+    getCharacterWidth(entry.entryName || '') +
+    getCharacterWidth(entry.rep || '');
+  console.log(entry.entryName, characterWidth);
+
+  const fontSize = Math.min(12 / (characterWidth / 2 - 4), 1.5);
+  console.log(fontSize);
 
   return (
     <div key={`entry-${index}`} className={styles.entryContainer}>

@@ -161,14 +161,17 @@ export default function Casts() {
           </section>
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>DJ</h2>
-            <CastCard
-              achievements={dj.achievements}
-              image={dj.image}
-              instagram={dj.instagram}
-              name={dj.name}
-              profile={dj.profile}
-              rep={dj.rep}
-            />
+            coming soon...
+            {false && (
+              <CastCard
+                achievements={dj.achievements}
+                image={dj.image}
+                instagram={dj.instagram}
+                name={dj.name}
+                profile={dj.profile}
+                rep={dj.rep}
+              />
+            )}
           </section>
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>MC</h2>

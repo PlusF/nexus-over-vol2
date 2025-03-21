@@ -152,7 +152,7 @@ export const HomeLogo = () => {
           transition={{ delay: 0.2 }}
           variants={mirageAnimation}
         >
-          2025.6.8 @ 六本木CUBE
+          2025.6.29 @ 六本木CUBE
         </motion.span>
       </div>
     </div>
