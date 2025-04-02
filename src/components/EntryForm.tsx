@@ -5,6 +5,7 @@ import { Entry as EntryType } from '@/types/Entry';
 
 import Button from './Button';
 import formStyles from './EntryForm.module.css';
+import Link from 'next/link';
 
 type FormType = 'main' | 'prelim' | 'audience';
 
@@ -174,6 +175,28 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
         <Button disabled={isLoading} type="submit">
           {isLoading ? '送信中...' : '送信'}
         </Button>
+        {formType === 'main' && (
+          <>
+            <p className={formStyles.note}>※こちらは当日予選のエントリーフォームです</p>
+            <p className={formStyles.note}>
+              ※現役予選のエントリーは
+              <Link className={formStyles.link} href="/prelim#entry">
+                こちら
+              </Link>
+            </p>
+          </>
+        )}
+        {formType === 'prelim' && (
+          <>
+            <p className={formStyles.note}>※こちらは現役予選のエントリーフォームです</p>
+            <p className={formStyles.note}>
+              ※当日予選のエントリーは
+              <Link className={formStyles.link} href="/entry">
+                こちら
+              </Link>
+            </p>
+          </>
+        )}
       </div>
     </form>
   );

@@ -162,7 +162,7 @@ export default function Prelim() {
             </div>
           </section>
 
-          <section className={styles.entrySection}>
+          <section className={styles.entrySection} id="entry">
             <h2 className={styles.entryHeading}>現役予選Entry</h2>
             <EntryForm formType="prelim" isLoading={isLoading} onSubmit={handleSubmit} />
           </section>

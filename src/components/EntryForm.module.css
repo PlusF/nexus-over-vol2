@@ -66,3 +66,13 @@
   justify-content: center;
   margin-top: 3rem;
 }
+
+.note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
