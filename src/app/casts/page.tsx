@@ -9,11 +9,10 @@ import { Header } from '@/components/Header';
 import sharedStyles from '../page.shared.module.css';
 
 import styles from './Casts.module.css';
+import React from 'react';
 
-// キャストのデータ
 const judges = [
   {
-    id: 1,
     name: 'Runa Miura',
     rep: ['happen inn Mnchr-m', 'List::X'],
     profile: '',
@@ -22,7 +21,6 @@ const judges = [
     instagram: 'https://www.instagram.com/runa.miura.ss',
   },
   {
-    id: 2,
     name: 'Chris Ackey',
     rep: ['CyberAgent Legit', 'BrosBranco'],
     profile: '',
@@ -30,11 +28,19 @@ const judges = [
     image: '/judge2.jpg',
     instagram: 'https://www.instagram.com/chris_ackey',
   },
+  {
+    name: 'Kanizo',
+    rep: ['VANDALISM', 'EDOGAWA'],
+    profile: '',
+    achievements: [],
+    image: '/judge3.jpg',
+    instagram: 'https://www.instagram.com/vandalism_kanizo',
+  },
 ];
+
 const dj = {
-  id: 3,
-  name: 'Kodai',
-  rep: ["Staill Diggin'", 'STRILLZ'],
+  name: 'OnokUro',
+  rep: ['happen inn Mnchr-m'],
   role: 'DJ',
   profile: '',
   achievements: [],
@@ -42,7 +48,6 @@ const dj = {
   instagram: 'https://www.instagram.com/kodai_over',
 };
 const mc = {
-  id: 4,
   name: 'かかと',
   rep: ['44th', 'フローライト', 'Buckdown', 'So-hait'],
   profile: '',
@@ -52,7 +57,6 @@ const mc = {
 };
 const guestBattlers = [
   {
-    id: 5,
     name: 'Tait Angle',
     rep: ['35th', 'LDC'],
     profile: '',
@@ -61,7 +65,6 @@ const guestBattlers = [
     instagram: 'https://www.instagram.com/aka_ango',
   },
   {
-    id: 6,
     name: 'Frederick',
     rep: ['43rd', 'chic grandpas', '肩の友', 'So-hait'],
     profile: '',
@@ -73,37 +76,31 @@ const guestBattlers = [
 
 const showcases = [
   {
-    id: 7,
     name: '12|21',
     description: '(35th×38th)',
     image: '/logo_trimmed_dark.png',
   },
   {
-    id: 8,
     name: 'O&O',
     description: '(38th×40th×45th×46th)',
     image: '/logo_trimmed_dark.png',
   },
   {
-    id: 9,
     name: '四畳飯店',
     description: '(39th×40th×41st)',
     image: '/logo_trimmed_dark.png',
   },
   {
-    id: 10,
     name: '八宝菜',
     description: '(41st×44th×45th)',
     image: '/logo_trimmed_dark.png',
   },
   {
-    id: 11,
     name: 'parfum',
     description: '(44th)',
     image: '/logo_trimmed_dark.png',
   },
   {
-    id: 12,
     name: '花燗',
     description: '(44th×45th)',
     image: '/logo_trimmed_dark.png',
@@ -133,6 +130,7 @@ const ShowcaseCard = ({
 };
 
 export default function Casts() {
+  const isAllCastsReleased = false;
   return (
     <>
       <Header />
@@ -144,11 +142,10 @@ export default function Casts() {
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>Judges</h2>
             <div style={{ marginBottom: '8rem' }}>
-              coming soon...
-              {false &&
-                judges.map(judge => (
+              {isAllCastsReleased ? (
+                judges.map((judge, index) => (
                   <CastCard
-                    key={judge.id}
+                    key={index}
                     achievements={judge.achievements}
                     image={judge.image}
                     instagram={judge.instagram}
@@ -156,13 +153,15 @@ export default function Casts() {
                     profile={judge.profile}
                     rep={judge.rep}
                   />
-                ))}
+                ))
+              ) : (
+                <div>coming soon...</div>
+              )}
             </div>
           </section>
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>DJ</h2>
-            coming soon...
-            {false && (
+            {isAllCastsReleased ? (
               <CastCard
                 achievements={dj.achievements}
                 image={dj.image}
@@ -171,6 +170,8 @@ export default function Casts() {
                 profile={dj.profile}
                 rep={dj.rep}
               />
+            ) : (
+              <div>coming soon...</div>
             )}
           </section>
           <section className={styles.castsSection}>
@@ -186,9 +187,9 @@ export default function Casts() {
           </section>
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>Guest Battlers</h2>
-            {guestBattlers.map(battler => (
+            {guestBattlers.map((battler, index) => (
               <CastCard
-                key={battler.id}
+                key={index}
                 achievements={battler.achievements}
                 image={battler.image}
                 instagram={battler.instagram}
@@ -201,9 +202,9 @@ export default function Casts() {
           <section className={styles.castsSection}>
             <h2 className={styles.sectionTitle}>Showcase</h2>
             <div className={styles.showcaseGrid}>
-              {showcases.map(showcase => (
+              {showcases.map((showcase, index) => (
                 <ShowcaseCard
-                  key={showcase.id}
+                  key={index}
                   description={showcase.description}
                   image={showcase.image}
                   name={showcase.name}

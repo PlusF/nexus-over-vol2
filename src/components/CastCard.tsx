@@ -40,6 +40,15 @@ export const CastCard = ({ name, rep, profile, achievements, image, instagram }:
         </div>
         <p className={styles.castRep}>{rep.join(' / ')}</p>
         {profile && <p className={styles.castProfile}>{profile}</p>}
+        {achievements && (
+          <div className={styles.achievements}>
+            {achievements.map((achievement, index) => (
+              <p key={index} className={styles.achievement}>
+                {achievement}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
