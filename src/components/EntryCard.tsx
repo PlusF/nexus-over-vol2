@@ -23,14 +23,15 @@ export const EntryCard = ({ entry, index }: EntryCardProps) => {
     getCharacterWidth(entry.entryName || '') +
     getCharacterWidth(entry.rep || '');
 
-  const fontSize = Math.min(12 / (characterWidth / 2 - 4), 1.5);
+  const fontSize = Math.min(12 / (characterWidth / 1.7 - 3), 1);
 
   return (
     <div key={`entry-${index}`} className={styles.entryContainer}>
       <div className={styles.entryInfo}>
         {entry.generation} {entry.genre}
-        <div style={{ fontSize: `${fontSize}rem` }}>
-          {entry.entryName} {entry.rep ? `rep. ${entry.rep}` : ''}
+        <div style={{ fontSize: '1.5rem' }}>
+          {entry.entryName}{' '}
+          <span style={{ fontSize: `${fontSize}rem` }}>{entry.rep ? `rep. ${entry.rep}` : ''}</span>
         </div>
       </div>
       {entry.instagram && (

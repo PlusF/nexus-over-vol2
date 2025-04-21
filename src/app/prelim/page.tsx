@@ -60,7 +60,7 @@ const dj = {
 
 const mc = {
   id: 4,
-  name: '泊',
+  name: 'Tomari',
   rep: ['44th', '踊人兎'],
   profile: '',
   image: '/prelim-mc.jpg',
