@@ -60,11 +60,11 @@ const dj = {
 
 const mc = {
   id: 4,
-  name: 'かかと',
-  rep: ['44th', 'フローライト', 'Buckdown', 'So-hait'],
+  name: '泊',
+  rep: ['44th', '踊人兎'],
   profile: '',
-  image: '/mc.jpg',
-  instagram: 'https://www.instagram.com/kkt__wl',
+  image: '/prelim-mc.jpg',
+  instagram: 'https://www.instagram.com/keisuke_831',
 };
 
 export default function Prelim() {
