@@ -22,7 +22,7 @@ const teamMembers = [
       'NExus Overが皆様にとって心地よい空間でありますように。',
       'ダンスしましょう！',
     ],
-    image: '/logo_trimmed_dark.png',
+    image: '/ari.jpg',
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const teamMembers = [
       '統合責任者のお二人をはじめ、初代運営陣の先輩方から多大なサポートをいただきながら、WISHにとって新鮮で刺激的な瞬間を提供できるよう、全力で取り組んでまいります。',
       'よろしくお願いいたします。',
     ],
-    image: '/logo_trimmed_dark.png',
+    image: '/haruto.jpg',
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const teamMembers = [
       'そこで出会った仲間達、そしていつも導いてくれる先輩方とともに、本イベントに全身全霊を注ぎます。',
       '参加していただいた全てのダンサーにとって、ダンスという選択がより一層心を躍らせるものとなれば幸いです。',
     ],
-    image: '/logo_trimmed_dark.png',
+    image: '/kojiro.jpg',
   },
   {
     id: 4,
