@@ -78,32 +78,32 @@ const showcases = [
   {
     name: '12|21',
     description: '(35th×38th)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-house.jpg',
   },
   {
     name: 'O&O',
     description: '(38th×40th×45th×46th)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-jazz.jpg',
   },
   {
     name: '四畳飯店',
     description: '(39th×40th×41st)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-pop.jpg',
   },
   {
     name: '八宝菜',
     description: '(41st×44th×45th)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-lock.jpg',
   },
   {
     name: 'parfum',
     description: '(44th)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-waack.jpg',
   },
   {
     name: '花燗',
     description: '(44th×45th)',
-    image: '/logo_trimmed_dark.png',
+    image: '/showcase-hiphop.jpg',
   },
 ];
 
@@ -206,7 +206,7 @@ export default function Casts() {
                 <ShowcaseCard
                   key={index}
                   description={showcase.description}
-                  image={showcase.image}
+                  image={isAllCastsReleased ? showcase.image : '/logo_trimmed_dark.png'}
                   name={showcase.name}
                 />
               ))}
