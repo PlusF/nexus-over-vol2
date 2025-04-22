@@ -119,7 +119,7 @@ const ShowcaseCard = ({
   return (
     <div className={styles.showcaseCard}>
       <div className={styles.showcaseImageContainer}>
-        <Image fill alt={name} loader={imageLoader} objectFit="cover" src={image} />
+        <Image alt={name} height={300} loader={imageLoader} src={image} width={300} />
       </div>
       <div>
         <h3 className={styles.showcaseName}>{name}</h3>
