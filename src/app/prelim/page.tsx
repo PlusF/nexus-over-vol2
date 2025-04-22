@@ -29,10 +29,8 @@ const postEntry = async (entry: EntryType) => {
   return response.json();
 };
 
-// キャストデータ
 const judges = [
   {
-    id: 1,
     name: 'Tait Angle',
     rep: ['35th', 'LDC'],
     profile: '',
@@ -40,7 +38,6 @@ const judges = [
     instagram: 'https://www.instagram.com/aka_ango',
   },
   {
-    id: 2,
     name: 'Frederick',
     rep: ['43rd', 'chic grandpas', '肩の友', 'So-hait'],
     profile: '',
@@ -50,7 +47,6 @@ const judges = [
 ];
 
 const dj = {
-  id: 3,
   name: 'ニトロゼウス',
   rep: ['39th', 'FreeFront', 'MightyBeatBation'],
   profile: '',
@@ -59,7 +55,6 @@ const dj = {
 };
 
 const mc = {
-  id: 4,
   name: 'Tomari',
   rep: ['44th', '踊人兎'],
   profile: '',
@@ -109,9 +104,9 @@ export default function Prelim() {
           <section className={styles.judgesSection}>
             <h2 className={styles.judgesHeading}>Judges</h2>
             <div className={styles.judgeContainer}>
-              {judges.map(judge => (
+              {judges.map((judge, index) => (
                 <CastCard
-                  key={judge.id}
+                  key={index}
                   achievements={[]}
                   image={judge.image}
                   instagram={judge.instagram}
