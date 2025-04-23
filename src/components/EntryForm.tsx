@@ -177,23 +177,37 @@ export function EntryForm({ onSubmit, isLoading, initialValues = {}, formType }:
         </Button>
         {formType === 'main' && (
           <>
-            <p className={formStyles.note}>※こちらは当日予選のエントリーフォームです</p>
             <p className={formStyles.note}>
-              ※現役予選のエントリーは
+              ※こちらは当日予選のエントリーフォームです。 現役予選のエントリーは
               <Link className={formStyles.link} href="/prelim#entry">
                 こちら
               </Link>
+              。
+            </p>
+            <p className={formStyles.note}>
+              ※6月27日24:00以降のキャンセルは100%のキャンセル料が発生します。キャンセルの連絡は
+              <Link className={formStyles.link} href="https://www.instagram.com/neo_wish">
+                公式Instagram
+              </Link>
+              のDMにてお願いします。
             </p>
           </>
         )}
         {formType === 'prelim' && (
           <>
-            <p className={formStyles.note}>※こちらは現役予選のエントリーフォームです</p>
             <p className={formStyles.note}>
-              ※当日予選のエントリーは
+              ※こちらは現役予選のエントリーフォームです。 当日予選のエントリーは
               <Link className={formStyles.link} href="/entry">
                 こちら
               </Link>
+              。
+            </p>
+            <p className={formStyles.note}>
+              ※4月24日24:00以降のキャンセルは100%のキャンセル料が発生します。キャンセルの連絡は
+              <Link className={formStyles.link} href="https://www.instagram.com/neo_wish">
+                公式Instagram
+              </Link>
+              のDMにてお願いします。
             </p>
           </>
         )}
