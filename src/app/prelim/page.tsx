@@ -153,14 +153,17 @@ export default function Prelim() {
                 <li>優勝者は本戦トーナメント出場権獲得</li>
                 <li>敗退者は当日予選も参加可能</li>
                 <li>参加費 ¥1,000</li>
+                <li style={{ fontSize: '12px' }}>
+                  ※4月24日24:00以降のキャンセルは100%のキャンセル料が発生します。
+                </li>
               </ul>
             </div>
           </section>
 
-          <section className={styles.entrySection} id="entry">
+          {/* <section className={styles.entrySection} id="entry">
             <h2 className={styles.entryHeading}>現役予選Entry</h2>
             <EntryForm formType="prelim" isLoading={isLoading} onSubmit={handleSubmit} />
-          </section>
+          </section> */}
 
           <section className={styles.entrySection}>
             <h2 className={styles.entryHeading}>Entry List</h2>

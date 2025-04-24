@@ -29,7 +29,7 @@ export const EntryCard = ({ entry, index }: EntryCardProps) => {
     <div key={`entry-${index}`} className={styles.entryContainer}>
       <div className={styles.entryInfo}>
         {entry.generation} {entry.genre}
-        <div style={{ fontSize: '1.5rem' }}>
+        <div style={{ fontSize: '1.45rem' }}>
           {entry.entryName}{' '}
           <span style={{ fontSize: `${fontSize}rem` }}>{entry.rep ? `rep. ${entry.rep}` : ''}</span>
         </div>
