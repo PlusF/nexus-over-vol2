@@ -51,6 +51,24 @@ export default function Audience() {
         <BackButton />
         <main className={styles.main}>
           <h1 className={styles.heading}>観覧申込</h1>
+          <div className={styles.infoBox}>
+            <p className={styles.infoText}>・観覧費：2,000円（ドリチケ2枚込み）</p>
+            <p className={styles.infoText}>
+              ・6月27日24:00以降のキャンセルは100%のキャンセル料が発生します。
+            </p>
+            <p className={styles.infoText}>
+              ・キャンセルの連絡は
+              <a
+                className={styles.infoLink}
+                href="https://www.instagram.com/neo_wish"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                公式Instagram
+              </a>
+              のDMにてお願いします。
+            </p>
+          </div>
           <EntryForm formType="audience" isLoading={isLoading} onSubmit={handleSubmit} />
           {/* <div className={formStyles.entryListButton}>
             <Button onClick={() => router.push('/audience-list')}>

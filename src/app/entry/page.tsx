@@ -53,6 +53,26 @@ export default function Entry() {
         <BackButton />
         <main className={sharedStyles.main}>
           <h1 className={sharedStyles.heading}>Entry</h1>
+
+          <div className={styles.infoBox}>
+            <p className={styles.infoText}>・エントリー費：3,500円（ドリチケ2枚込み）</p>
+            <p className={styles.infoText}>
+              ・6月27日24:00以降のキャンセルは100%のキャンセル料が発生します。
+            </p>
+            <p className={styles.infoText}>
+              ・キャンセルの連絡は
+              <a
+                className={styles.infoLink}
+                href="https://www.instagram.com/neo_wish"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                公式Instagram
+              </a>
+              のDMにてお願いします。
+            </p>
+          </div>
+
           <EntryForm formType="main" isLoading={isLoading} onSubmit={handleSubmit} />
           <div className={styles.entryListButton}>
             <Button onClick={() => router.push('/entry-list')}>Entry一覧</Button>

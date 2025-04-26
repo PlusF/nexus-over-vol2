@@ -21,6 +21,29 @@
   margin-bottom: 1rem;
 }
 
+.infoBox {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.infoText {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.infoLink {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
 @media (max-width: 480px) {
   .main {
     gap: 1.5rem;
