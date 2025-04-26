@@ -23,7 +23,7 @@ export const EntryCard = ({ entry, index }: EntryCardProps) => {
     getCharacterWidth(entry.entryName || '') +
     getCharacterWidth(entry.rep || '');
 
-  const fontSize = Math.min(12 / (characterWidth / 1.7 - 3), 1);
+  const fontSize = Math.max(Math.min(12 / (characterWidth / 1.7 - 3), 1), 0.8);
 
   return (
     <div key={`entry-${index}`} className={styles.entryContainer}>

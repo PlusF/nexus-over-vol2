@@ -130,7 +130,7 @@ const ShowcaseCard = ({
 };
 
 export default function Casts() {
-  const isAllCastsReleased = false;
+  const isAllCastsReleased = true;
   return (
     <>
       <Header />

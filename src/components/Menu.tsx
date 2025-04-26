@@ -60,9 +60,9 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
                 >
                   History
                 </a>
-                <Link className={styles.prelimLink} href="/prelim" onClick={onClose}>
+                {/* <Link className={styles.prelimLink} href="/prelim" onClick={onClose}>
                   現役予選
-                </Link>
+                </Link> */}
               </div>
             </nav>
           </motion.div>

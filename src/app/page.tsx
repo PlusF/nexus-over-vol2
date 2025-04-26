@@ -132,7 +132,7 @@ export default function Home() {
             </motion.div>
             <div className={styles.writing}>
               <h1>Time Table</h1>
-              <p>13:00 Open - 18:30 Close</p>
+              <p>13:00 Open - 19:30 Close</p>
             </div>
             <div className={styles.detailButton}>
               <Button onClick={() => router.push('/time-table')}>詳細 ☞</Button>
@@ -191,9 +191,9 @@ export default function Home() {
           <section className={styles.audienceButtonContainer}>
             <NextLinkButton href="/audience">観覧申込</NextLinkButton>
           </section>
-          <section className={styles.prelimButtonContainer}>
+          {/* <section className={styles.prelimButtonContainer}>
             <NextLinkButton href="/prelim">現役予選特設ページ☞</NextLinkButton>
-          </section>
+          </section> */}
         </main>
       </div>
     </>
