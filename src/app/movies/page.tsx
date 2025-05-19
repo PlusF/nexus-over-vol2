@@ -22,6 +22,15 @@ export default function Movies() {
               width="100%"
             />
           </div>
+          <div className={styles.movieContainer}>
+            <h2 className={styles.movieTitle}>本告知映像</h2>
+            <iframe
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              src="https://www.youtube.com/embed/gqhkNI7ODYA?si=ykw_0Ux4ttcuS4QC"
+              title="YouTube video player"
+              width="100%"
+            />
+          </div>
         </main>
       </div>
     </>

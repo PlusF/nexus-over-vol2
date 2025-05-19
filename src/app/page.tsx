@@ -37,6 +37,8 @@ export default function Home() {
   const opacityRange5 = useTransform(scrollYProgress, range(4), opacityRange);
   const xRange6 = useTransform(scrollYProgress, range(5), xRange);
   const opacityRange6 = useTransform(scrollYProgress, range(5), opacityRange);
+  const xRange7 = useTransform(scrollYProgress, range(6), xRange);
+  const opacityRange7 = useTransform(scrollYProgress, range(6), opacityRange);
 
   return (
     <>
@@ -123,6 +125,28 @@ export default function Home() {
             >
               <Image
                 fill
+                alt="rule background"
+                className={styles.backgroundImage}
+                loader={imageLoader}
+                src="/concept-background.jpg"
+                style={{ objectFit: 'cover' }}
+              />
+            </motion.div>
+            <div className={styles.writing}>
+              <h1>Rules</h1>
+              <p>1on1 freestyle battle</p>
+            </div>
+            <div className={styles.detailButton}>
+              <Button onClick={() => router.push('/rule')}>詳細 ☞</Button>
+            </div>
+          </section>
+          <section className={styles.sectionContainer}>
+            <motion.div
+              className={styles.background}
+              style={{ x: xRange5, opacity: opacityRange5 }}
+            >
+              <Image
+                fill
                 alt="time-table background"
                 className={styles.backgroundImage}
                 loader={imageLoader}
@@ -141,7 +165,7 @@ export default function Home() {
           <section className={styles.sectionContainer}>
             <motion.div
               className={styles.background}
-              style={{ x: xRange5, opacity: opacityRange5 }}
+              style={{ x: xRange6, opacity: opacityRange6 }}
             >
               <Image
                 fill
@@ -154,8 +178,8 @@ export default function Home() {
             </motion.div>
             <div className={styles.writing}>
               <h1>Movies</h1>
-              <p>準告知映像（2025.3.7 公開）</p>
-              <p style={{ color: '#aaa' }}>本告知映像（coming soon...）</p>
+              <p>準告知映像（2025.3.7 公開済み）</p>
+              <p>本告知映像（2025.4.26 公開済み）</p>
             </div>
             <div className={styles.detailButton}>
               <Button onClick={() => router.push('/movies')}>詳細 ☞</Button>
@@ -164,7 +188,7 @@ export default function Home() {
           <section className={styles.sectionContainer}>
             <motion.div
               className={styles.background}
-              style={{ x: xRange6, opacity: opacityRange6 }}
+              style={{ x: xRange7, opacity: opacityRange7 }}
             >
               <Image
                 fill
