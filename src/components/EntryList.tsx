@@ -2,7 +2,6 @@
 import { Entry } from '@/types/Entry';
 
 import { EntryCard } from './EntryCard';
-import styles from './EntryList.module.css';
 interface EntryListProps {
   entries: Entry[];
   isLoading: boolean;
@@ -10,7 +9,7 @@ interface EntryListProps {
 
 export const EntryList = ({ entries, isLoading }: EntryListProps) => {
   return (
-    <div className={styles.entryList}>
+    <div>
       {isLoading ? (
         <p>Loading...</p>
       ) : entries.length === 0 ? (

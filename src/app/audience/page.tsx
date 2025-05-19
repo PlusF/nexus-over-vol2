@@ -4,15 +4,17 @@ import { useState } from 'react';
 import { ulid } from 'ulid';
 
 import { BackButton } from '@/components/BackButton';
+import Button from '@/components/Button';
 import { EntryForm } from '@/components/EntryForm';
 import { Header } from '@/components/Header';
-import { Entry as EntryType } from '@/types/Entry';
+import { Audience as AudienceType } from '@/types/Audience';
 
-import styles from '../page.shared.module.css';
+import sharedStyles from '../page.shared.module.css';
+import styles from '../entry/entry.module.css';
 
 const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/audiences';
 
-const postAudience = async (audience: EntryType) => {
+const postAudience = async (audience: AudienceType) => {
   const response = await fetch(API_ENDPOINT, {
     method: 'PUT',
     headers: {
@@ -30,7 +32,7 @@ export default function Audience() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (audience: EntryType) => {
+  const handleSubmit = async (audience: AudienceType) => {
     try {
       setIsLoading(true);
       await postAudience(audience);
@@ -47,10 +49,10 @@ export default function Audience() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div className={sharedStyles.container}>
         <BackButton />
-        <main className={styles.main}>
-          <h1 className={styles.heading}>観覧申込</h1>
+        <main className={sharedStyles.main}>
+          <h1 className={sharedStyles.heading}>観覧申込</h1>
           <div className={styles.infoBox}>
             <p className={styles.infoText}>・観覧費：2,000円（ドリチケ2枚込み）</p>
             <p className={styles.infoText}>
@@ -70,11 +72,9 @@ export default function Audience() {
             </p>
           </div>
           <EntryForm formType="audience" isLoading={isLoading} onSubmit={handleSubmit} />
-          {/* <div className={formStyles.entryListButton}>
-            <Button onClick={() => router.push('/audience-list')}>
-              観覧者一覧
-            </Button>
-          </div> */}
+          <div className={styles.entryListButton}>
+            <Button onClick={() => router.push('/audience-list')}>観戦者一覧</Button>
+          </div>
         </main>
       </div>
     </>
