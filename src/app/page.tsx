@@ -156,7 +156,7 @@ export default function Home() {
             </motion.div>
             <div className={styles.writing}>
               <h1>Time Table</h1>
-              <p>13:00 Open - 19:30 Close</p>
+              <p>13:00 Open - 19:00 Close</p>
             </div>
             <div className={styles.detailButton}>
               <Button onClick={() => router.push('/time-table')}>詳細 ☞</Button>
