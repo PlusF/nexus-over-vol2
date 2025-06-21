@@ -101,7 +101,7 @@ const showcases = [
     image: '/showcase-waack.jpg',
   },
   {
-    name: '花燗',
+    name: '花爛',
     description: '(44th×45th)',
     image: '/showcase-hiphop.jpg',
   },
