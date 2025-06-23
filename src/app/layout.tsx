@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Zen_Antique } from 'next/font/google';
 
 import './globals.css';
-import { Footer } from '@/components/Footer';
+import { ConditionalFooter } from '@/components/ConditionalFooter';
 
 const zenAntique = Zen_Antique({
   variable: '--font-zen-antique',
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${zenAntique.variable}`}>
         {children}
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );
