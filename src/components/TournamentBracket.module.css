@@ -1,0 +1,479 @@
+.tournament {
+  width: 100%;
+}
+
+.tournamentContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.roundTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.matchesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* 左側のBest16 */
+.leftBest16 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 左側のBest8 */
+.leftBest8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.leftBest8 .matchesColumn {
+  gap: 4.5rem;
+  padding-top: 1.7rem;
+}
+
+/* 左側の準決勝 */
+.leftSemifinal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.leftSemifinal .matchesColumn {
+  gap: 0;
+  padding-top: 5.5rem;
+}
+
+/* 決勝 */
+.final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.final .matchesColumn {
+  gap: 0;
+  padding-top: 12.7rem;
+}
+
+.final .matchParticipants {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+/* 右側の準決勝 */
+.rightSemifinal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.rightSemifinal .matchesColumn {
+  gap: 0;
+  padding-top: 5rem;
+}
+
+/* 右側のBest8 */
+.rightBest8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.rightBest8 .matchesColumn {
+  gap: 4.5rem;
+  padding-top: 1.7rem;
+}
+
+/* 右側のBest16 */
+.rightBest16 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.match {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matchParticipants {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+/* Best8のマッチ内のparticipant card間隔を調整 */
+.leftBest8 .matchParticipants,
+.rightBest8 .matchParticipants {
+  gap: 4.7rem;
+}
+
+.leftSemifinal .matchParticipants,
+.rightSemifinal .matchParticipants {
+  gap: 11.8rem;
+}
+
+.participantCard {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 0.5rem;
+  width: 120px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.participantCard.winner {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.participantCard.empty {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.participantName {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.participantCard.empty .participantName {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+/* 接続線をシンプルに実装 */
+
+/* 水平線 - 各段から次の段への接続 */
+
+/* 左側の水平線 */
+.leftBest16 .participantCard::before {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest16 .match::before {
+  content: '';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest8 .participantCard::before {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest8 .match::before {
+  content: '';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftSemifinal .participantCard::before {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftSemifinal .match::before {
+  content: '';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.final .match:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 53%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+/* 右側の水平線 */
+
+.rightSemifinal .match::after {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 53%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightSemifinal .participantCard::after {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest8 .match::after {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest8 .participantCard::after {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .match::after {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .participantCard::after {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+/* 垂直線 - 同じ段の上下のマッチを繋ぐ */
+
+/* Best16から Best8への垂直線 */
+.leftBest16 .match:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 23%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest16 .match:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  bottom: 21%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest16 .match:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 23%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest16 .match:nth-child(4)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  bottom: 21%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+/* Best8から準決勝への垂直線 */
+.leftBest8 .match:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 14%;
+  width: 2px;
+  height: 7.4rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftBest8 .match:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  bottom: 12%;
+  width: 2px;
+  height: 7.4rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.leftSemifinal .match:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 8%;
+  width: 2px;
+  height: 14.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+/* 右側の垂直線 */
+
+.rightSemifinal .match:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 8%;
+  width: 2px;
+  height: 14.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest8 .match:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 14%;
+  width: 2px;
+  height: 7.4rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest8 .match:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  bottom: 12%;
+  width: 2px;
+  height: 7.4rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .match:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 23%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .match:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 23%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .match:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  bottom: 21%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.rightBest16 .match:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  bottom: 21%;
+  width: 2px;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}

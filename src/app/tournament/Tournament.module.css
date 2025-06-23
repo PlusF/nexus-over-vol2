@@ -1,0 +1,39 @@
+.tournamentContainer {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.tournamentContainer h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* トーナメント表のコンテナ */
+.tournamentWrapper {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .tournamentWrapper {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0 -1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tournamentWrapper {
+    padding: 0.5rem;
+    margin: 0 -0.5rem;
+  }
+}
