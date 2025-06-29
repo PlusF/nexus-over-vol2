@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { calculateBattleId } from '@/utils/battleIdCalculator';
 import sharedStyles from '../page.shared.module.css';
 import styles from './UpdateBattle.module.css';
+
+const API_ENDPOINT = 'https://2o6ijocxi5.execute-api.ap-northeast-1.amazonaws.com/battles';
 
 export default function UpdateBattle() {
   const [round, setRound] = useState('');
@@ -19,15 +22,20 @@ export default function UpdateBattle() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/battles', {
+      // roundとpositionからidを計算
+      const battleId = calculateBattleId(Number(round), Number(position));
+
+      // 直接外部APIにPUTリクエストを送信
+      const response = await fetch(API_ENDPOINT, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          id: battleId,
           round: Number(round),
           position: Number(position),
-          name,
+          name: String(name) || '',
         }),
       });
 
@@ -36,14 +44,17 @@ export default function UpdateBattle() {
         setRound('');
         setPosition('');
         setName('');
-        router.push('/tournament');
       } else {
         const errorData = await response.json();
-        setMessage(`エラー: ${errorData.error}`);
+        setMessage(`エラー: ${errorData.error || 'API request failed'}`);
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessage('更新中にエラーが発生しました');
+      if (error instanceof Error) {
+        setMessage(`エラー: ${error.message}`);
+      } else {
+        setMessage('更新中にエラーが発生しました');
+      }
     } finally {
       setLoading(false);
     }
@@ -65,9 +76,10 @@ export default function UpdateBattle() {
               value={round}
               onChange={e => setRound(e.target.value)}
               className={styles.input}
-              placeholder="ラウンド番号を入力"
+              placeholder="ラウンド番号を入力 (1-5)"
               required
               min="1"
+              max="5"
             />
           </div>
 
@@ -98,7 +110,6 @@ export default function UpdateBattle() {
               onChange={e => setName(e.target.value)}
               className={styles.input}
               placeholder="参加者名を入力"
-              required
             />
           </div>
 

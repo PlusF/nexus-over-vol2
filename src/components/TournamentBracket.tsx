@@ -120,8 +120,8 @@ export function TournamentBracket({ battles }: TournamentBracketProps) {
           <h3 className={styles.roundTitle}>Best8</h3>
           <div className={styles.matchesColumn}>
             {Array.from({ length: 2 }).map((_, index) => {
-              const battle1 = best8Matches[index * 2 + 2];
-              const battle2 = best8Matches[index * 2 + 3];
+              const battle1 = best8Matches[index * 2 + 4];
+              const battle2 = best8Matches[index * 2 + 5];
               return renderMatch(index.toString(), battle1, battle2);
             })}
           </div>
@@ -132,8 +132,8 @@ export function TournamentBracket({ battles }: TournamentBracketProps) {
           <h3 className={styles.roundTitle}>Best16</h3>
           <div className={styles.matchesColumn}>
             {Array.from({ length: 4 }).map((_, index) => {
-              const battle1 = best16Matches[index * 2 + 4];
-              const battle2 = best16Matches[index * 2 + 5];
+              const battle1 = best16Matches[index * 2 + 8];
+              const battle2 = best16Matches[index * 2 + 9];
               return renderMatch(index.toString(), battle1, battle2);
             })}
           </div>

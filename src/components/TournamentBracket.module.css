@@ -1,5 +1,26 @@
 .tournament {
   width: 100%;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+/* スクロールバーのスタイル */
+.tournament::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tournament::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.tournament::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.tournament::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .tournamentContainer {
@@ -8,6 +29,7 @@
   justify-content: center;
   align-items: flex-start;
   position: relative;
+  min-width: 1200px;
 }
 
 .roundTitle {

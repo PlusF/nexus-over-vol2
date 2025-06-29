@@ -54,6 +54,32 @@ export default function Entry() {
         <main className={sharedStyles.main}>
           <h1 className={sharedStyles.heading}>Entry</h1>
 
+          {/* エントリー締め切りメッセージ */}
+          <div
+            className={styles.infoBox}
+            style={{ backgroundColor: '#ffebee', border: '1px solid #f44336' }}
+          >
+            <h2 style={{ color: '#d32f2f', marginBottom: '10px', fontSize: '18px' }}>
+              エントリー受付終了
+            </h2>
+            <p className={styles.infoText} style={{ color: '#d32f2f' }}>
+              バトルエントリーの受付は終了いたしました。
+            </p>
+            <p className={styles.infoText} style={{ color: '#d32f2f' }}>
+              ご応募いただき、ありがとうございました。
+            </p>
+            <p className={styles.infoText} style={{ color: '#1976d2', marginTop: '10px' }}>
+              ※観覧エントリーは引き続き受け付けております。
+              <a
+                className={styles.infoLink}
+                href="/audience"
+                style={{ color: '#1976d2', textDecoration: 'underline', marginLeft: '5px' }}
+              >
+                観覧申込はこちら
+              </a>
+            </p>
+          </div>
+
           <div className={styles.infoBox}>
             <p className={styles.infoText}>・エントリー費：3,500円（ドリチケ2枚込み）</p>
             <p className={styles.infoText}>
@@ -73,7 +99,9 @@ export default function Entry() {
             </p>
           </div>
 
-          <EntryForm formType="main" isLoading={isLoading} onSubmit={handleSubmit} />
+          {/* エントリーフォームをコメントアウト */}
+          {/* <EntryForm formType="main" isLoading={isLoading} onSubmit={handleSubmit} /> */}
+
           <div className={styles.entryListButton}>
             <Button onClick={() => router.push('/entry-list')}>Entry一覧</Button>
           </div>
