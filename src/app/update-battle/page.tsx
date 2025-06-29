@@ -65,7 +65,30 @@ export default function UpdateBattle() {
       <main className={sharedStyles.main}>
         <h1 className={sharedStyles.heading}>バトル情報更新</h1>
 
-        <form onSubmit={handleSubmit} className={styles.updateForm}>
+        {/* イベント終了メッセージ */}
+        <div
+          className={styles.updateForm}
+          style={{ backgroundColor: '#ffebee', border: '1px solid #f44336' }}
+        >
+          <h2
+            style={{
+              color: '#d32f2f',
+              marginBottom: '10px',
+              fontSize: '18px',
+              textAlign: 'center',
+            }}
+          >
+            イベントは終了しました
+          </h2>
+          <p style={{ color: '#d32f2f', margin: '0', fontSize: '0.9rem', textAlign: 'center' }}>
+            バトル情報更新の機能は終了いたしました。
+          </p>
+          <p style={{ color: '#d32f2f', margin: '0', fontSize: '0.9rem', textAlign: 'center' }}>
+            ご利用いただき、ありがとうございました。
+          </p>
+        </div>
+
+        {/* <form onSubmit={handleSubmit} className={styles.updateForm}>
           <div className={styles.formGroup}>
             <label htmlFor="round" className={styles.label}>
               ラウンド
@@ -124,7 +147,7 @@ export default function UpdateBattle() {
               {message}
             </div>
           )}
-        </form>
+        </form> */}
 
         <div className={styles.navigation}>
           <button onClick={() => router.push('/tournament')} className={styles.backButton}>

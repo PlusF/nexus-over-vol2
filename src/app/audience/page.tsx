@@ -53,25 +53,20 @@ export default function Audience() {
         <BackButton />
         <main className={sharedStyles.main}>
           <h1 className={sharedStyles.heading}>観覧申込</h1>
-          <div className={styles.infoBox}>
-            <p className={styles.infoText}>・観覧費：2,000円（ドリチケ2枚込み）</p>
-            <p className={styles.infoText}>
-              ・6月27日24:00以降のキャンセルは100%のキャンセル料が発生します。
-            </p>
-            <p className={styles.infoText}>
-              ・キャンセルの連絡は
-              <a
-                className={styles.infoLink}
-                href="https://www.instagram.com/neo_wish"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                公式Instagram
-              </a>
-              のDMにてお願いします。
+
+          {/* イベント終了メッセージ */}
+          <div
+            className={styles.infoBox}
+            style={{ backgroundColor: '#ffebee', border: '1px solid #f44336' }}
+          >
+            <h2 style={{ color: '#d32f2f', marginBottom: '10px', fontSize: '18px' }}>
+              イベントは終了しました
+            </h2>
+            <p className={styles.infoText} style={{ color: '#d32f2f' }}>
+              観覧申込の受付は終了いたしました。
             </p>
           </div>
-          <EntryForm formType="audience" isLoading={isLoading} onSubmit={handleSubmit} />
+
           <div className={styles.entryListButton}>
             <Button onClick={() => router.push('/audience-list')}>観戦者一覧</Button>
           </div>

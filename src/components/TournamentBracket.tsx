@@ -2,12 +2,53 @@
 
 import { Battle } from '@/types/Tournament';
 import styles from './TournamentBracket.module.css';
+import { useEffect, useRef } from 'react';
 
 interface TournamentBracketProps {
   battles: Battle[];
 }
 
 export function TournamentBracket({ battles }: TournamentBracketProps) {
+  const tournamentRef = useRef<HTMLDivElement>(null);
+
+  // フォントサイズを動的に調整する関数
+  const adjustFontSizes = () => {
+    if (!tournamentRef.current) return;
+
+    const participantNames = tournamentRef.current.querySelectorAll(`.${styles.participantName}`);
+
+    participantNames.forEach(nameElement => {
+      const element = nameElement as HTMLElement;
+      const parentCard = element.closest(`.${styles.participantCard}`) as HTMLElement;
+
+      if (!parentCard) return;
+
+      // カードの実際の幅を取得（パディングを除く）
+      const cardStyle = window.getComputedStyle(parentCard);
+      const cardWidth =
+        parentCard.offsetWidth -
+        parseFloat(cardStyle.paddingLeft) -
+        parseFloat(cardStyle.paddingRight);
+
+      // 初期フォントサイズから開始
+      let fontSize = 0.8; // rem
+      element.style.fontSize = `${fontSize}rem`;
+
+      // テキストの幅がカード幅を超える場合、フォントサイズを縮小
+      while (element.scrollWidth > cardWidth && fontSize > 0.4) {
+        fontSize -= 0.05;
+        element.style.fontSize = `${fontSize}rem`;
+      }
+    });
+  };
+
+  // battlesが変更された時やコンポーネントがマウントされた時にフォントサイズを調整
+  useEffect(() => {
+    // DOM要素が完全にレンダリングされた後に実行
+    const timer = setTimeout(adjustFontSizes, 100);
+    return () => clearTimeout(timer);
+  }, [battles]);
+
   // ラウンドごとにマッチを分類
   const battlesByRound = battles.reduce(
     (acc, battle) => {
@@ -65,7 +106,7 @@ export function TournamentBracket({ battles }: TournamentBracketProps) {
   const finalMatches = battlesByRound[4] || [];
 
   return (
-    <div className={styles.tournament}>
+    <div className={styles.tournament} ref={tournamentRef}>
       <div className={styles.tournamentContainer}>
         {/* 左側のBest16 (1-4番目) */}
         <div className={styles.leftBest16}>

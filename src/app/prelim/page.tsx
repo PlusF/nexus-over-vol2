@@ -160,10 +160,32 @@ export default function Prelim() {
             </div>
           </section>
 
-          {/* <section className={styles.entrySection} id="entry">
+          {/* イベント終了メッセージ */}
+          <section className={styles.entrySection} id="entry">
             <h2 className={styles.entryHeading}>現役予選Entry</h2>
-            <EntryForm formType="prelim" isLoading={isLoading} onSubmit={handleSubmit} />
-          </section> */}
+            <div
+              style={{
+                backgroundColor: '#ffebee',
+                border: '1px solid #f44336',
+                margin: '0 auto 2rem auto',
+                maxWidth: '600px',
+                padding: '2rem',
+                borderRadius: '12px',
+                backdropFilter: 'blur(8px)',
+                textAlign: 'center',
+              }}
+            >
+              <h3 style={{ color: '#d32f2f', marginBottom: '10px', fontSize: '18px' }}>
+                イベントは終了しました
+              </h3>
+              <p style={{ color: '#d32f2f', margin: '0', fontSize: '0.9rem' }}>
+                現役予選エントリーの受付は終了いたしました。
+              </p>
+              <p style={{ color: '#d32f2f', margin: '0', fontSize: '0.9rem' }}>
+                ご応募いただき、ありがとうございました。
+              </p>
+            </div>
+          </section>
 
           <section className={styles.entrySection}>
             <h2 className={styles.entryHeading}>Entry List</h2>

@@ -65,10 +65,7 @@ export default function Entry() {
             <p className={styles.infoText} style={{ color: '#d32f2f' }}>
               バトルエントリーの受付は終了いたしました。
             </p>
-            <p className={styles.infoText} style={{ color: '#d32f2f' }}>
-              ご応募いただき、ありがとうございました。
-            </p>
-            <p className={styles.infoText} style={{ color: '#1976d2', marginTop: '10px' }}>
+            {/* <p className={styles.infoText} style={{ color: '#1976d2', marginTop: '10px' }}>
               ※観覧エントリーは引き続き受け付けております。
               <a
                 className={styles.infoLink}
@@ -77,7 +74,7 @@ export default function Entry() {
               >
                 観覧申込はこちら
               </a>
-            </p>
+            </p> */}
           </div>
 
           <div className={styles.infoBox}>
